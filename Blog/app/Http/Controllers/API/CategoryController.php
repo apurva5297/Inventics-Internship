@@ -37,7 +37,7 @@ class CategoryController extends Controller
 					}
 					else
 					return false;
-			fg
+		
 				}
 				public function check_user($connection_id,$auth_code)
 				{
