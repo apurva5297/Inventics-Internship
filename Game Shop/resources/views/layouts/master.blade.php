@@ -31,8 +31,21 @@
 @include('layouts.game_news')  
 @include('layouts.subscribe')
 @include('layouts.footer')
-@include('layouts.payment_note')
+@include('layouts.footersticky_addtocart')
+@include('layouts.purchase_note')
 
+
+
+            <!-- back to top -->
+            <a class="back-to-top js-back-to-top compensate-for-scrollbar" href="#" title="Scroll To Top">
+                <i class="icon icon-angle-up"></i>
+              </a>
+              <!-- loader -->
+              <div class="loader-horizontal js-loader-horizontal">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
+                </div>
+              </div>
 
   
   <script src="js/vendor-special/lazysizes.min.js"></script>
