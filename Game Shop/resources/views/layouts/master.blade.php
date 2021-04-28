@@ -19,13 +19,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-    <body>
-        <div>
-            @include('layouts.navigation')
-        </div>
-        <div>
-            @include('layouts.menu')
-        </div>
 
-    </body>
+<body class="has-squared-btns has-loader-bg equal-height has-btn-not-upper">
+@include('layouts.header')
+@include('layouts.mobile_menu')
+@include('layouts.cart')
+@include('layouts.youtubevideo') 
+@include('layouts.holder')
+@include('layouts.topworldgames')   
+@include('layouts.gameoftheyear')
+@include('layouts.game_news')  
+@include('layouts.subscribe')
+@include('layouts.footer')
+@include('layouts.payment_note')
+
+
+  
+  <script src="js/vendor-special/lazysizes.min.js"></script>
+  <script src="js/vendor-special/ls.bgset.min.js"></script>
+  <script src="js/vendor-special/ls.aspectratio.min.js"></script>
+  <script src="js/vendor-special/jquery.min.js"></script>
+  <script src="js/vendor-special/jquery.ez-plus.js"></script>
+  <script src="js/vendor/vendor.min.js"></script>
+  <script src="js/app-html.js"></script>
+</body>
+
 </html>
