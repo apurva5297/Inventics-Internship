@@ -15,7 +15,7 @@
                 <li><a href="#" class="link-special">Online Support</a></li>
               </ul>
             </div>
-          </div>dfgf
+          </div>
           <div class="col-lg-6 col-xl-3">
             <div class="footer-block collapsed-mobile">
               <div class="title">
