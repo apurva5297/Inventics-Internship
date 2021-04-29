@@ -24,12 +24,9 @@
 @include('layouts.header')
 @include('layouts.mobile_menu')
 @include('layouts.cart')
-@include('layouts.youtubevideo') 
-@include('layouts.holder')
-@include('layouts.topworldgames')   
-@include('layouts.gameoftheyear')
-@include('layouts.game_news')  
-@include('layouts.subscribe')
+    <!-- main content -->
+    @yield('content')
+    <!-- main content end -->
 @include('layouts.footer')
 @include('layouts.footersticky_addtocart')
 @include('layouts.purchase_note')
