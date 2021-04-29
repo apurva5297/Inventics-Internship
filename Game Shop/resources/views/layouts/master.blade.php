@@ -21,7 +21,19 @@
 </head>
 
 <body class="has-squared-btns has-loader-bg equal-height has-btn-not-upper">
-@include('layouts.header')
+  @php
+  if(isset($tempGame))
+  {
+    if($tempGame)
+    {
+      @endphp @include('layouts.header') @php
+    }
+  }
+  else
+  {
+    @endphp @include('layouts.header-2') @php
+  }
+@endphp
 @include('layouts.mobile_menu')
 @include('layouts.cart')
     <!-- main content -->
@@ -29,7 +41,7 @@
     <!-- main content end -->
 @include('layouts.footer')
 @include('layouts.footersticky_addtocart')
-@include('layouts.purchase_note')
+@include('layouts.payment_note')
 
 
 

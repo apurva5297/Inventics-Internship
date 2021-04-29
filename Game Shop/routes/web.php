@@ -12,5 +12,8 @@
 */
 use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
-    return view('home');
+    //return view('welcome');
+    return redirect()->route('Home');
 });
+Route::get("game","GameController@index")->name("Home");
+Route::get("product","ProductController@index");
