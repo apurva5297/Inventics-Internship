@@ -9,10 +9,10 @@
   <meta name="author" content="">
   <title>Game Shop</title>
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-  <!-- Vendor CSS -->
+  <!-- Vendor CSS-->
   <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
   <link href="css/vendor/vendor.min.css" rel="stylesheet">
-  <!-- Custom styles for this template -->
+  <!- Custom styles for this template -->
   <link href="css/style-games.css" rel="stylesheet">
   <!-- Custom font -->
   <link href="fonts/icomoon/icons.css" rel="stylesheet">
@@ -21,21 +21,10 @@
 </head>
 
 <body class="has-squared-btns has-loader-bg equal-height has-btn-not-upper">
-  @php
-  if(isset($tempGame))
-  {
-    if($tempGame)
-    {
-      @endphp @include('layouts.header') @php
-    }
-  }
-  else
-  {
-    @endphp @include('layouts.header-2') @php
-  }
-@endphp
+ 
+@include('layouts.header')
 @include('layouts.mobile_menu')
-@include('layouts.cart')
+
     <!-- main content -->
     @yield('content')
     <!-- main content end -->
