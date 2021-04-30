@@ -111,7 +111,7 @@
                     <ul class="submenu-list">
                       <li><a href="product.html">Product page</a>
                         <ul>
-                          <li><a href="product.html">Product page variant 1<span class="menu-label menu-label--color3">Popular</span></a></li>
+                          <li><a href="{{route('Product.index')}}">Product page variant 1<span class="menu-label menu-label--color3">Popular</span></a></li>
                           <li><a href="product-2.html">Product page variant 2</a></li>
                           <li><a href="product-3.html">Product page variant 3</a></li>
                           <li><a href="product-4.html">Product page variant 4</a></li>

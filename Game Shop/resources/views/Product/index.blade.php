@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master_common')
 @section('content')
 <div class="page-content">
   <div class="holder breadcrumbs-wrap mt-0">

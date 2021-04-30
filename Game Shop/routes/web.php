@@ -13,7 +13,7 @@
 use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     //return view('welcome');
-    return redirect()->route('Home');
+    return redirect()->route('Game');
 });
-Route::get("game","GameController@index")->name("Home");
-Route::get("product","ProductController@index");
+Route::get("game","GameController@index")->name("Game");
+Route::get("product","ProductController@index")->name("Product.index");
