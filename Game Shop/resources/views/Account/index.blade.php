@@ -13,8 +13,12 @@
     <div class="container">
       <div class="row">
        @include('Account.list-menu')
-       @include('Account.account-details')
- 
+       @if($page=="details")
+       @include('Account.account_details')     
+       @elseif($page=="wishlist")
+       @include('Account.account-wishlist')
+      @endif
+      
   
 
 </div>

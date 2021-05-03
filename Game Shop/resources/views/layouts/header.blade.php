@@ -141,11 +141,11 @@
                       <li><a href="account-create.html">Account</a>
                         <ul>
                           <li><a href="account-create.html">Login</a></li>
-                          <li><a href="{{route('Account.index')}}">Create account</a></li>
-                          <li><a href="account-details.html">Account details</a></li>
+                          <li><a href="">Create account</a></li>
+                          <li><a href="{{route('accountdetails.index')}}">Account details</a></li>
                           <li><a href="account-addresses.html">Account addresses</a></li>
                           <li><a href="account-history.html">Order History</a></li>
-                          <li><a href="account-wishlist.html">Wishlist</a></li>
+                          <li><a href="{{route('accountwishlist.index')}}">Wishlist</a></li>
                         </ul>
                       </li>
                       <li><a href="blog.html">Blog</a>

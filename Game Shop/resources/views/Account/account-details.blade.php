@@ -1,4 +1,19 @@
-<div class="col-md-14 aside">
+@extends('layouts.master_common')
+@section('content')
+<div class="page-content">
+  <div class="holder breadcrumbs-wrap mt-0">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li><span>My account</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="holder">
+    <div class="container">
+      <div class="row">
+       @include('Account.list-menu')
+         <div class="col-md-14 aside">
     <h1 class="mb-3">Account Details</h1>
     <div class="row vert-margin">
       <div class="col-sm-9">
@@ -59,3 +74,4 @@
 </div>
 </div>
 </div>
+@endsection

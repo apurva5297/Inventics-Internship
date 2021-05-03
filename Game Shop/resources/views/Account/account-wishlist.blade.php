@@ -1,3 +1,19 @@
+
+@extends('layouts.master_common')
+@section('content')
+<div class="page-content">
+  <div class="holder breadcrumbs-wrap mt-0">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Home</a></li>
+        <li><span>My account</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="holder">
+    <div class="container">
+      <div class="row">
+       @include('Account.list-menu')
 <div class="col-md-14 aside">
     <h1 class="mb-3">My Wishlist</h1>
     <div class="empty-wishlist js-empty-wishlist text-center py-3 py-sm-5 d-none" style="opacity: 0;">
@@ -493,3 +509,4 @@
 </div>
 </div>
 </div>
+@endsection
