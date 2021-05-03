@@ -17,3 +17,4 @@ Route::get('/', function () {
 });
 Route::get("game","GameController@index")->name("Game");
 Route::get("product","ProductController@index")->name("Product.index");
+Route::get('account','AccountController@index')->name('Account.index');
