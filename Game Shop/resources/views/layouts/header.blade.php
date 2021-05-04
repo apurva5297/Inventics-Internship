@@ -143,8 +143,8 @@
                           <li><a href="account-create.html">Login</a></li>
                           <li><a href="">Create account</a></li>
                           <li><a href="{{route('accountdetails.index')}}">Account details</a></li>
-                          <li><a href="account-addresses.html">Account addresses</a></li>
-                          <li><a href="account-history.html">Order History</a></li>
+                          <li><a href="{{route('accountaddress.index')}}">Account addresses</a></li>
+                          <li><a href="{{route('accountorderhistory.index')}}">Order History</a></li>
                           <li><a href="{{route('accountwishlist.index')}}">Wishlist</a></li>
                         </ul>
                       </li>
@@ -158,8 +158,8 @@
                           <li><a href="blog-post.html">Blog post</a></li>
                         </ul>
                       </li>
-                      <li><a href="gallery.html">Gallery</a></li>
-                      <li><a href="faq.html">Faq</a></li>
+                      <li><a href="{{route('Gallery.index')}}">Gallery</a></li>
+                      <li><a href="{{route('Faq.index')}}">Faq</a></li>
                       <li><a href="about.html">About Us</a></li>
                       <li><a href="contact.html">Contact Us</a></li>
                       <li><a href="404.html">404 Page</a></li>

@@ -14,6 +14,15 @@ class AccountController extends Controller
     {
   return view('Account.account-wishlist');
     }
+    public function accountaddress_index()
+    {
+  return view('Account.account-address');
+    }
+    public function accountorderhistory_index()
+    {
+  return view('Account.account-orderhistory');
+    }
+ 
 
 }
 
