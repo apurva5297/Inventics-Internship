@@ -15,6 +15,8 @@ Route::get('/', function () {
     //return view('welcome');
     return redirect()->route('Game');
 });
+Route::get("about","AboutUsController@index")->name("AboutUs.index");
+
 Route::get("game","GameController@index")->name("Game");
 
 Route::get("product","ProductController@index")->name("Product.index");
@@ -22,6 +24,8 @@ Route::get("product","ProductController@index")->name("Product.index");
 Route::get("gallery","GalleryController@index")->name("Gallery.index");
 
 Route::get("faq","FaqController@index")->name("Faq.index");
+
+Route::get("contact","ContactController@index")->name("Contact.index");
 
 Route::get('account','AccountController@index')->name('accountdetails.index');
 Route::get('wishlist','AccountController@accountwishlist_index')->name('accountwishlist.index');

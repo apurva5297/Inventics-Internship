@@ -160,8 +160,8 @@
                       </li>
                       <li><a href="{{route('Gallery.index')}}">Gallery</a></li>
                       <li><a href="{{route('Faq.index')}}">Faq</a></li>
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="{{route('AboutUs.index')}}">About Us</a></li>
+                      <li><a href="{{route('Contact.index')}}">Contact Us</a></li>
                       <li><a href="404.html">404 Page</a></li>
                       <li><a href="typography.html">Typography</a></li>
                       <li><a href="coming-soon.html" target="_blank">Coming soon</a></li>
