@@ -27,6 +27,10 @@ Route::get("faq","FaqController@index")->name("Faq.index");
 
 Route::get("contact","ContactController@index")->name("Contact.index");
 
+Route::get("404","NotFoundController@index")->name("NotFound.index");
+
+Route::get("category","CategoryController@index")->name("Category.index");
+
 Route::get('account','AccountController@index')->name('accountdetails.index');
 Route::get('wishlist','AccountController@accountwishlist_index')->name('accountwishlist.index');
 Route::get('address','AccountController@accountaddress_index')->name('accountaddress.index');

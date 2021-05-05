@@ -3,7 +3,7 @@
 <div class="page-content">
       @include('Contact.content')
       @include('Contact.get_in_touch')
-      @include('Contact.newsletter')
+      @include('Common.newsletter')
 </div>
 
     

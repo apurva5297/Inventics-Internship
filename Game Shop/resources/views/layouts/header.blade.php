@@ -122,7 +122,7 @@
                       </li>
                       <li><a href="category.html">Category page</a>
                         <ul>
-                          <li><a href="category.html">Left sidebar filters</a></li>
+                          <li><a href="{{route('Category.index')}}">Left sidebar filters</a></li>
                           <li><a href="category-closed-filter.html">Closed filters</a></li>
                           <li><a href="category-horizontal-filter.html">Horizontal filters</a></li>
                           <li><a href="category-listview.html">Listing View</a></li>
@@ -162,7 +162,7 @@
                       <li><a href="{{route('Faq.index')}}">Faq</a></li>
                       <li><a href="{{route('AboutUs.index')}}">About Us</a></li>
                       <li><a href="{{route('Contact.index')}}">Contact Us</a></li>
-                      <li><a href="404.html">404 Page</a></li>
+                      <li><a href="{{route('NotFound.index')}}">404 Page</a></li>
                       <li><a href="typography.html">Typography</a></li>
                       <li><a href="coming-soon.html" target="_blank">Coming soon</a></li>
                     </ul>

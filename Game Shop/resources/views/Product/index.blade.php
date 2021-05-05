@@ -13,7 +13,7 @@
   @include('Product.product_holder')
   @include('Product.text_holder')
   @include('Product.more_details_tabs')
-  @include('Product.you_may_also_like')
+  @include('Common.you_may_like')
   
 
 </div>
