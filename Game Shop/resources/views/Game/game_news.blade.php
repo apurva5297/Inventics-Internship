@@ -10,7 +10,7 @@
           <div class="row vert-margin-middle">
             <div class="post-prw-img col-sm-9">
               <a href="blog-post.html" class="d-block image-container" style="padding-bottom: 88.92%">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-01.png" class="lazyload fade-up" alt="Blog Title">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-01.webp" class="lazyload fade-up" alt="Blog Title">
               </a>
             </div>
             <div class="post-prw-text col-sm-9">
@@ -29,7 +29,7 @@
           <div class="row vert-margin-middle">
             <div class="post-prw-img col-sm-9">
               <a href="blog-post.html" class="d-block image-container" style="padding-bottom: 88.92%">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-03.png" class="lazyload fade-up" alt="Blog Title">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-03.webp" class="lazyload fade-up" alt="Blog Title">
               </a>
             </div>
             <div class="post-prw-text col-sm-9">
@@ -48,7 +48,7 @@
           <div class="row vert-margin-middle">
             <div class="post-prw-img col-sm-9">
               <a href="blog-post.html" class="d-block image-container" style="padding-bottom: 88.92%">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-02.png" class="lazyload fade-up" alt="Blog Title">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-02.webp" class="lazyload fade-up" alt="Blog Title">
               </a>
             </div>
             <div class="post-prw-text col-sm-9">

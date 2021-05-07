@@ -8,7 +8,7 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="image-hover-scale">
-                <img src="images/skins/games/products/product-07-1.jpg" alt="The Game" class="js-prd-img">
+                <img src="images/skins/games/products/product-07-1.webp" alt="The Game" class="js-prd-img">
                 <div class="prd-big-circle-labels">
                   <div class="label-sale"><span>-10% <span class="sale-text">Sale</span></span>
                     <div class="countdown-circle">
@@ -27,7 +27,8 @@
                   <div class="price-new">$ 180</div>
                 </div>
                 <div class="prd-action">
-                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-07-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-07-1.webp
+", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                 </div>
               </div>
             </div>
@@ -37,7 +38,7 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="image-hover-scale">
-                <img src="images/skins/games/products/product-08-1.jpg" alt="The Game" class="js-prd-img">
+                <img src="images/skins/games/products/product-08-1.webp" alt="The Game" class="js-prd-img">
                 <div class="prd-big-circle-labels">
                 </div>
               </a>
@@ -50,7 +51,8 @@
                   <div class="price-new">$ 180</div>
                 </div>
                 <div class="prd-action">
-                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-08-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-08-1.webp
+", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                 </div>
               </div>
             </div>
@@ -60,7 +62,7 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="image-hover-scale">
-                <img src="images/skins/games/products/product-09-1.jpg" alt="The Game" class="js-prd-img">
+                <img src="images/skins/games/products/product-09-1.webp" alt="The Game" class="js-prd-img">
                 <div class="prd-big-circle-labels">
                 </div>
               </a>
@@ -73,7 +75,8 @@
                   <div class="price-new">$ 180</div>
                 </div>
                 <div class="prd-action">
-                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-09-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-09-1.webp
+", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                 </div>
               </div>
             </div>
@@ -83,7 +86,7 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="image-hover-scale">
-                <img src="images/skins/games/products/product-10-1.jpg" alt="The Game" class="js-prd-img">
+                <img src="images/skins/games/products/product-10-1.webp" alt="The Game" class="js-prd-img">
                 <div class="prd-big-circle-labels">
                   <div class="label-sale"><span>-10% <span class="sale-text">Sale</span></span>
                   </div>
@@ -99,7 +102,8 @@
                   <div class="price-new">$ 299</div>
                 </div>
                 <div class="prd-action">
-                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-10-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-10-1.webp
+", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                 </div>
               </div>
             </div>
@@ -109,7 +113,7 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="image-hover-scale">
-                <img src="images/skins/games/products/product-11-1.jpg" alt="The Game" class="js-prd-img">
+                <img src="images/skins/games/products/product-11-1.webp" alt="The Game" class="js-prd-img">
                 <div class="prd-big-circle-labels">
                 </div>
               </a>
@@ -122,7 +126,8 @@
                   <div class="price-new">$ 280</div>
                 </div>
                 <div class="prd-action">
-                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-11-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-11-1.webp
+", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                 </div>
               </div>
             </div>
@@ -132,7 +137,7 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="image-hover-scale">
-                <img src="images/skins/games/products/product-12-1.jpg" alt="The Game" class="js-prd-img">
+                <img src="images/skins/games/products/product-12-1.webp" alt="The Game" class="js-prd-img">
                 <div class="prd-big-circle-labels">
                 </div>
               </a>
@@ -145,7 +150,8 @@
                   <div class="price-new">$ 149</div>
                 </div>
                 <div class="prd-action">
-                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-12-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                  <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-12-1.webp
+", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                 </div>
               </div>
             </div>

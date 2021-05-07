@@ -5,7 +5,10 @@
           <div class="video__overlay"></div>
           <div class=" video__copyright">The simplest interface for integrating YouTube</div>
           <div id="Video-001" class="video video--background" data-id="2BrX85uagD4" data-type="background" data-start="7" data-mute="true"></div>
-          <div class="video__image box ratio-container blur-up js lazyloaded" data-parent-fit="contain" style="background-image: url(images/skins/games/slider/video-screen.jpg);"></div>
+          <div class="video__image box ratio-container blur-up js lazyloaded" data-parent-fit="contain" style="background-image: url(images/skins/games/slider-image.jpg);"></div>
+          {{-- <video autoplay muted loop>
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            </video> --}}
           <div class="video__text-content">
             <div class="container">
               <div class="bnslider-text-wrap bnslider-overlay ">

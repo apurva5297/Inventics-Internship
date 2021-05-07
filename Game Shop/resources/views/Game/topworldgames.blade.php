@@ -9,8 +9,8 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="prd-img image-container">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-01-1.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-01-2.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-01-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-01-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
                 <div class="foxic-loader"></div>
                 <div class="prd-big-circle-labels">
                   <div class="label-sale"><span>-10% <span class="sale-text">Sale</span></span>
@@ -49,7 +49,7 @@
                 <div class="prd-action">
                   <div class="prd-action-left">
                     <form action="#">
-                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-01-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-01-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                     </form>
                   </div>
                 </div>
@@ -61,8 +61,8 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="prd-img image-container">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-02-1.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-02-2.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-02-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-02-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
                 <div class="foxic-loader"></div>
                 <div class="prd-big-circle-labels">
                   <div class="label-new"><span>New</span></div>
@@ -96,7 +96,7 @@
                 <div class="prd-action">
                   <div class="prd-action-left">
                     <form action="#">
-                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-02-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-02-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                     </form>
                   </div>
                 </div>
@@ -108,8 +108,8 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="prd-img image-container">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-03-1.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-03-2.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-03-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-03-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
                 <div class="foxic-loader"></div>
                 <div class="prd-big-circle-labels">
                 </div>
@@ -142,7 +142,7 @@
                 <div class="prd-action">
                   <div class="prd-action-left">
                     <form action="#">
-                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-03-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-03-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                     </form>
                   </div>
                 </div>
@@ -154,8 +154,8 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="prd-img image-container">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-04-1.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-04-2.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-04-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-04-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
                 <div class="foxic-loader"></div>
                 <div class="prd-big-circle-labels">
                   <div class="label-sale"><span>-50% <span class="sale-text">Sale</span></span>
@@ -191,7 +191,7 @@
                 <div class="prd-action">
                   <div class="prd-action-left">
                     <form action="#">
-                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-04-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-04-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                     </form>
                   </div>
                 </div>
@@ -203,8 +203,8 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="prd-img image-container">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-05-1.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-05-2.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-05-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-05-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
                 <div class="foxic-loader"></div>
                 <div class="prd-big-circle-labels">
                 </div>
@@ -237,7 +237,7 @@
                 <div class="prd-action">
                   <div class="prd-action-left">
                     <form action="#">
-                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-05-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-05-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                     </form>
                   </div>
                 </div>
@@ -249,8 +249,8 @@
           <div class="prd-inside">
             <div class="prd-img-area">
               <a href="product.html" class="prd-img image-container">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-06-1.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-06-2.jpg" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-06-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-06-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
                 <div class="foxic-loader"></div>
                 <div class="prd-big-circle-labels">
                 </div>
@@ -283,7 +283,7 @@
                 <div class="prd-action">
                   <div class="prd-action-left">
                     <form action="#">
-                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-06-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                      <button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-06-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                     </form>
                   </div>
                 </div>
