@@ -148,14 +148,14 @@
                           <li><a href="{{route('accountwishlist.index')}}">Wishlist</a></li>
                         </ul>
                       </li>
-                      <li><a href="blog.html">Blog</a>
+                      <li><a href="{{route('bloglist.index')}}">Blog</a>
                         <ul>
-                          <li><a href="blog.html">Right sidebar</a></li>
-                          <li><a href="blog-left-sidebar.html">Left sidebar</a></li>
-                          <li><a href="blog-without-sidebar.html">No sidebar</a></li>
-                          <li><a href="blog-sticky-sidebar.html">Sticky sidebar</a></li>
-                          <li><a href="blog-grid.html">Grid</a></li>
-                          <li><a href="blog-post.html">Blog post</a></li>
+                          {{-- <li><a href="{{route('accountwishlist.index')}}">Right sidebar</a></li> --}}
+                          <li><a href="{{route('bloglist.index')}}">Left sidebar</a></li>
+                          {{-- <li><a href="blog-without-sidebar.html">No sidebar</a></li>
+                          <li><a href="blog-sticky-sidebar.html">Sticky sidebar</a></li> --}}
+                          <li><a href="{{route('blogcategory.index')}}">Grid</a></li>
+                          <li><a href="{{route('blogpost.index')}}">Blog post</a></li>
                         </ul>
                       </li>
                       <li><a href="{{route('Gallery.index')}}">Gallery</a></li>

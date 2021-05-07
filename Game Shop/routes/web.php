@@ -35,6 +35,10 @@ Route::get("cart","CartController@index")->name("Cart.index");
 Route::get("checkout","CartController@checkout_index")->name("Checkout.index");
 Route::get("emptycart","CartController@emptycart_index")->name("EmptyCart.index");
 
+Route::get("bloglist","BlogController@index")->name("bloglist.index");
+Route::get("blogcategory","BlogController@blogcategory_index")->name("blogcategory.index");
+Route::get("blogpost","BlogController@blogpost_index")->name("blogpost.index");
+
 Route::get('account','AccountController@index')->name('accountdetails.index');
 Route::get('wishlist','AccountController@accountwishlist_index')->name('accountwishlist.index');
 Route::get('address','AccountController@accountaddress_index')->name('accountaddress.index');
