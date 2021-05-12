@@ -1,0 +1,12 @@
+<?php
+	Route::post('/product_add','Api\ProductController@productAdd'); 
+	Route::post('/product_golbal_add','Api\ProductController@globalProductAdd'); 
+	Route::post('/top_viewed_product_lists','Api\ProductController@topViewedProductList');
+	Route::post('/product_lists','Api\ProductController@productList'); 
+	Route::post('/global_product_lists','Api\ProductController@globalProductList'); 
+	Route::post('/product_details','Api\ProductController@productDetail'); 
+	Route::post('/product_update','Api\ProductController@productUpdate'); 
+	Route::post('/product_delete','Api\ProductController@productDelete'); 
+	Route::post('/product_image_upload','Api\ProductController@UploadFile'); 
+	Route::post('/product_image_remove','Api\ProductController@removeFile'); 
+?>

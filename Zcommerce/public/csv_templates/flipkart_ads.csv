@@ -1,0 +1,2 @@
+NEFT ID,Date,Settlement Value (Rs.) = SUM(G:K),,Type,Campaign / Transaction ID,Wallet Redeem (Rs.),Wallet Redeem Reversal (Rs.),Wallet Topup (Rs.),Wallet Refund (Rs.),Taxes (Rs.)
+NFT-090900241GN00153XXXXXXX,2020-09-09,0,,redeem,QN1AYE496M1A,-12711.86,15000,0,0,-2288.14

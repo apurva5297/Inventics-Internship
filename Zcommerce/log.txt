@@ -1,0 +1,9 @@
+{"key":"A123456789","fcm_token":"ctraEJYOPxs:APA91bFi7PRdAO1jR_C21jDyEX2PFoM8sJLWL4K0aD_nrlAoZaqbk4_clX3Tq_LTMm5PV4THUCSDsqwM4yaFYO4T9_EdUDo9Ibkbrlbgldrjr6d75oqebip064qKt_CoNMaNZ4tdhIrE","user_first_name":"ranjeet","user_last_name":"singh","vendor_phone":"","type":"Retailer","user_email":"iit2007030@gmail.com","user_phone":"7204246977"}
+{"key":"A123456789","fcm_token":"ctraEJYOPxs:APA91bFi7PRdAO1jR_C21jDyEX2PFoM8sJLWL4K0aD_nrlAoZaqbk4_clX3Tq_LTMm5PV4THUCSDsqwM4yaFYO4T9_EdUDo9Ibkbrlbgldrjr6d75oqebip064qKt_CoNMaNZ4tdhIrE","user_first_name":"ranjeet","user_last_name":"singh","vendor_phone":"","type":"Retailer","user_email":"iit2007030@gmail.com","user_phone":"7204246977"}
+{"key":"A123456789","fcm_token":"ctraEJYOPxs:APA91bFi7PRdAO1jR_C21jDyEX2PFoM8sJLWL4K0aD_nrlAoZaqbk4_clX3Tq_LTMm5PV4THUCSDsqwM4yaFYO4T9_EdUDo9Ibkbrlbgldrjr6d75oqebip064qKt_CoNMaNZ4tdhIrE","user_first_name":"ranjeet","user_last_name":"singh","vendor_phone":"","type":"Retailer","user_email":"iit2007030@gmail.com","user_phone":"7204246977"}
+{"key":"A123456789"}
+{"key":"A123456789","fcm_token":"eAtaulGW_L0:APA91bG5eexpE3KWlcQmoY-o97iZFah86NM3Q0fSSAkPuDS9avtGoySNlG0TE4qtLvljMRHVkl1nk8e-3icIj3wHMD1J2PNmMee5LN10Qxz4YFOwSGLa4u3SJtepVFa8pJmlvScDUZ3w","user_first_name":"Sonu","user_last_name":"Kumar","vendor_phone":"","type":"Retailer","user_email":"sonu@gmail.com","user_phone":"8310969217"}
+{"key":"A123456789","fcm_token":"eAtaulGW_L0:APA91bG5eexpE3KWlcQmoY-o97iZFah86NM3Q0fSSAkPuDS9avtGoySNlG0TE4qtLvljMRHVkl1nk8e-3icIj3wHMD1J2PNmMee5LN10Qxz4YFOwSGLa4u3SJtepVFa8pJmlvScDUZ3w","user_first_name":"Sonu","user_last_name":"Kumar","vendor_phone":"","type":"Retailer","user_email":"sonu@gmail.com","user_phone":"8310969217"}
+{"key":"A123456789","phone":"9031567372"}
+{"key":"A123456789","phone":"9031567372"}
+{"key":"A123456789","name":"Singh","email":"Deepakjkhjkh@gmail.com","phone":"9031567372","type":"Retailer","fcm_token":"JGSDHAGD7232871"}

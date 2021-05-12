@@ -1,0 +1,9 @@
+<?php
+	Route::post('/inventory_add','Api\InventoryController@inventoryAdd');
+	Route::post('/inventory_lists','Api\InventoryController@inventoryList'); 
+	Route::post('/inventory_details','Api\InventoryController@inventoryDetail');
+	Route::post('/inventory_update','Api\InventoryController@inventoryUpdate');
+	Route::post('/inventory_delete','Api\InventoryController@inventoryDelete');
+	Route::post('/inventory_upload_image','Api\InventoryController@inventoryUploadImage');
+	Route::post('/inventory_remove_image','Api\InventoryController@inventoryRemoveImage');
+?>

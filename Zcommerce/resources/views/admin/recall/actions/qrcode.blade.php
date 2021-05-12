@@ -1,0 +1,1 @@
+<img src="https://chart.googleapis.com/chart?chs=60x60&cht=qr&chl={{$inventory->product->id}},{{$inventory->id}}" />
