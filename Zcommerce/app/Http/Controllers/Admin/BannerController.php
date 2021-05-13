@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Validations\CreateBannerRequest;
 use App\Http\Requests\Validations\UpdateBannerRequest;
 use App\CategorySubGroup;
-
+use DB;
 class BannerController extends Controller
 {
     use Authorizable;
@@ -73,7 +73,7 @@ class BannerController extends Controller
             'group_id' => $request->group_id,
             'columns' => $request->columns,
             'order' => $request->order,
-            'banner' => $request->banner,
+            'store_type' =>($request->store_type),
         );
         $banner = Banner::create($data);
 
@@ -95,6 +95,7 @@ class BannerController extends Controller
     public function edit(Banner $banner)
     {
         $sub_category_groups = CategorySubGroup::pluck('name','id');
+      
         return view('admin.banner._edit', compact('banner','sub_category_groups'));
     }
 
@@ -108,6 +109,7 @@ class BannerController extends Controller
     public function update(UpdateBannerRequest $request, Banner $banner)
     {
         $banner->update($request->all());
+      
 
         if ($request->hasFile('image') || ($request->input('delete_image') == 1)){
             if($banner->featuredImage)

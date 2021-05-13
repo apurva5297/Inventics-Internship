@@ -59,7 +59,7 @@
 								<br/>
 					          	{{ trans('app.order') . ': ' }}<strong>{!! $banner->order !!}</strong>
 								<br/>
-								{{ trans('app.banner') . ': ' }}<strong>{!! $banner->banner !!}</strong>
+								{{ trans('app.store_type') . ': ' }}<strong>{!! $banner->store_type !!}</strong>
 								<br/>
 					          	{{ trans('app.link_label') . ': ' }}<strong>{!! $banner->link_label !!}</strong>
 								<br/>

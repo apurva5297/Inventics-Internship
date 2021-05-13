@@ -65,9 +65,9 @@
     </div>
   
       <div class="form-group">
-        {!! Form::label('banner', trans('app.form.banner').'*', ['class' => 'with-help']) !!}
-        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ trans('help.banner_group') }}"></i>
-        {!! Form::select('banner', ['Games','Electronics','Medicine','Books'], null, ['class' => 'form-control select2-normal', 'placeholder' => trans('app.placeholder.banner')]) !!}
+        {!! Form::label('store_type', trans('app.form.store_type').'*', ['class' => 'with-help']) !!}
+        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ trans('help.store_type_group') }}"></i>
+        {!! Form::select('store_type', ['Games'=>'Games','Electronics'=>'Electronics','Medical'=>'Medical','Book'=>'Book','Sports'=>'Sports','Pets'=>'Pets','Fashion'=>'Fashion','Food Market'=>'Food Market'], null, ['class' => 'form-control select2-normal', 'placeholder' => trans('app.placeholder.store_type')]) !!}
         <div class="help-block with-errors"></div>
       </div>
    

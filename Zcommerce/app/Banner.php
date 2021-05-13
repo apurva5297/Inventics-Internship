@@ -31,7 +31,9 @@ class Banner extends Model
                     'group_id',
                     'columns',
                     'order',
+                    'store_type',
                 ];
+
 
     /**
      * Get the group for the banner.
@@ -61,5 +63,7 @@ class Banner extends Model
     // {
     //     return unserialize($value);
     // }
+  
+
 
 }
