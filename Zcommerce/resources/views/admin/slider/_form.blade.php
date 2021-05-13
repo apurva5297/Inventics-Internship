@@ -80,7 +80,7 @@
         <div class="col-md-3 nopadding-left">
           <div class="fileUpload btn btn-primary btn-block btn-flat">
             <span>{{ trans('app.form.select') }}</span>
-            <input type="file" name="image" id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
+            <input type="file" name="images[]" id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
           </div>
         </div>
       </div>
@@ -103,5 +103,49 @@
     </div>
   </div>
 </div>
+
+
+{{-- <div class="row">
+  <div class="col-md-8">
+    <div class="form-group">
+      <label for="exampleInputFile" class="with-help"> {{ trans('app.slider_image') . '*' }}</label>
+      <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ trans('help.slider_image') }}"></i>
+      @if(isset($slider) && Storage::exists(optional($slider->featuredImage)->path))
+        <img src="{{ get_storage_file_url(optional($slider->featuredImage)->path, 'medium') }}" width="50%" alt="{{ trans('app.slider_image') }}">
+        <span class="indent10">
+          {!! Form::checkbox('delete_image', 1, null, ['class' => 'icheck']) !!} {{ trans('app.form.delete_image') }}
+        </span>
+      @endif --}}
+
+      {{-- <div class="row">
+        <div class="col-md-9 nopadding-right">
+          <input id="uploadFile" placeholder="{{ trans('app.slider_image') }}" class="form-control" disabled="disabled" style="height: 28px;" />
+        </div>
+        <div class="col-md-3 nopadding-left">
+          <div class="fileUpload btn btn-primary btn-block btn-flat">
+            <span>{{ trans('app.form.select') }}</span>
+            <input type="file" name="image2" id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
+          </div>
+        </div>
+      </div>
+      <div class="help-block with-errors">{{ trans('help.slider_img_hint') }}</div>
+    </div>
+  </div>
+  <div class="col-md-4 nopadding-left">
+    <div class="form-group">
+      <label for="thumb" class="with-help"> {{ trans('app.thumbnail') }}</label>
+      <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ trans('help.slider_thumb_image') }}"></i>
+      @if(isset($slider) && Storage::exists(optional($slider->images->first())->path))
+        <img src="{{ get_storage_file_url(optional($slider->images->first())->path, 'medium') }}" width="30%" alt="{{ trans('app.slider_image') }}">
+        <span class="indent10">
+          {!! Form::checkbox('delete_thumb_image', 1, null, ['class' => 'icheck']) !!} {{ trans('app.form.delete_image') }}
+        </span>
+      @endif
+      <span class="spacer5"></span>
+      <input type="file" name="thumb" style="display: inline-block;" />
+      <div class="help-block with-errors">{{ trans('help.slider_thumb_hint') }}</div>
+    </div>
+  </div>
+</div> --}}
 
 <p class="help-block">* {{ trans('app.form.required_fields') }}</p>

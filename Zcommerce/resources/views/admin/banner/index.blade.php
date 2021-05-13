@@ -59,6 +59,8 @@
 								<br/>
 					          	{{ trans('app.order') . ': ' }}<strong>{!! $banner->order !!}</strong>
 								<br/>
+								{{ trans('app.banner') . ': ' }}<strong>{!! $banner->banner !!}</strong>
+								<br/>
 					          	{{ trans('app.link_label') . ': ' }}<strong>{!! $banner->link_label !!}</strong>
 								<br/>
 					          	{{ trans('app.link') . ': ' }}<strong>{!! $banner->link !!}</strong>

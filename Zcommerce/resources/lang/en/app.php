@@ -600,6 +600,7 @@ return [
     'title' => 'Title',
     'columns' => 'Columns',
     'group' => 'Group',
+    'banner' => 'Banner',
     'slider_image' => 'Slider image',
     'thumbnail' => 'Thumbnail',
 
@@ -967,6 +968,7 @@ return [
         'meta_title' => 'Meta title',
         'meta_description' => 'Meta description',
         'group' => 'Group',
+        'banner' => 'Banner',
         'category_sub_group' => 'Select sub-group',
         'category_sub_groups' => 'Category sub-groups',
         'category_sub_grp_name' => 'Category sub-group',
@@ -1190,6 +1192,7 @@ return [
         'position' => 'Order',
         'key_feature' => 'Key feature',
         'group' => 'Group',
+        'banner' => 'Banner',
         'legal_name' => 'Legal name',
         'category_description' => 'Short explanation',
         'fulfilled' => 'Fulfilled',

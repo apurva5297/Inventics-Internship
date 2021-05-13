@@ -28,6 +28,7 @@ class CreateBannersTable extends Migration
             $table->string('group_id')->nullable();
             $table->integer('columns')->default(12)->nullable();
             $table->integer('order')->default(100)->nullable();
+            $table->string('banner')->nullable();
             $table->timestamps();
         });
     }

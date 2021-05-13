@@ -45,6 +45,7 @@
           <div class="help-block with-errors"></div>
         </div>
       </div>
+      
       <div class="col-md-4 nopadding-left nopadding-right">
         <div class="form-group">
           {!! Form::label('columns', trans('app.form.columns'), ['class' => 'with-help']) !!}
@@ -62,6 +63,14 @@
         </div>
       </div>
     </div>
+  
+      <div class="form-group">
+        {!! Form::label('banner', trans('app.form.banner').'*', ['class' => 'with-help']) !!}
+        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ trans('help.banner_group') }}"></i>
+        {!! Form::select('banner', ['Games','Electronics','Medicine','Books'], null, ['class' => 'form-control select2-normal', 'placeholder' => trans('app.placeholder.banner')]) !!}
+        <div class="help-block with-errors"></div>
+      </div>
+   
 
     <div class="form-group">
       <label for="exampleInputFile" class="with-help"> {{ trans('app.banner_image') }}</label>

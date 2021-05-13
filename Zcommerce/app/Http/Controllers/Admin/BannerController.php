@@ -73,6 +73,7 @@ class BannerController extends Controller
             'group_id' => $request->group_id,
             'columns' => $request->columns,
             'order' => $request->order,
+            'banner' => $request->banner,
         );
         $banner = Banner::create($data);
 
