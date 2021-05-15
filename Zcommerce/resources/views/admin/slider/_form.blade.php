@@ -80,7 +80,7 @@
         <div class="col-md-3 nopadding-left">
           <div class="fileUpload btn btn-primary btn-block btn-flat">
             <span>{{ trans('app.form.select') }}</span>
-            <input type="file" name="image[]" multiple accept="image/*" id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
+            <input type="file" name="image" id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
           </div>
         </div>
       </div>

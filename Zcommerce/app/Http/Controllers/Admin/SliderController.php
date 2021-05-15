@@ -58,9 +58,42 @@ class SliderController extends Controller
   
 
         $slider = Slider::create($request->all());
+      
 
         if ($request->hasFile('image'))
-         $slider->saveImage($request->file('image'), true);
+        $slider->saveImage($request->file('image'), true);
+        // {
+        //     foreach ( $request->image as $image) {
+        //         $imageName = request()->image->getClientOriginalName();
+        //         request()->image->move(public_path('upload'), $imageName);
+        
+        
+        //         return response()->json(['uploaded' => '/upload/'.$imageName]);
+                
+        //     }
+        // }
+    
+        // if ($request->hasFile('image'))
+        //  { 
+        // $data=[];
+        // foreach($request->file('image') as $image)
+        //     {
+      
+        //        // $image->move(public_path().'/images/', $name);  
+        //         $data[]=[
+        //            'name' => $image->getClientOriginalName(),
+        //         ];  
+        //     }
+
+        //     $file= new Slider();
+        //     $file->image=json_encode($data);
+        //     $file->save();
+        //  }
+         
+
+        
+           
+       // $slider->saveImage($request->file('image'), true);
 
         
 
