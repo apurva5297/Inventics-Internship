@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Validations\CreateBannerRequest;
 use App\Http\Requests\Validations\UpdateBannerRequest;
 use App\CategorySubGroup;
-use DB;
+
+use function GuzzleHttp\json_decode;
+
 class BannerController extends Controller
 {
     use Authorizable;
@@ -95,7 +97,6 @@ class BannerController extends Controller
     public function edit(Banner $banner)
     {
         $sub_category_groups = CategorySubGroup::pluck('name','id');
-      
         return view('admin.banner._edit', compact('banner','sub_category_groups'));
     }
 
@@ -107,9 +108,22 @@ class BannerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateBannerRequest $request, Banner $banner)
-    {
-        $banner->update($request->all());
-      
+    {   
+        $data = array(
+            'title' => $request->title,
+            'description' => $request->description,
+            'link' => $request->link,
+            'link_label' => $request->link_label,
+            'bg_color' => $request->bg_color,
+            'sub_category_list' => json_encode($request->sub_category_list),
+            'group_id' => $request->group_id,
+            'columns' => $request->columns,
+            'order' => $request->order,
+            'store_type' =>($request->store_type),
+        );
+
+
+        $banner->update($data);
 
         if ($request->hasFile('image') || ($request->input('delete_image') == 1)){
             if($banner->featuredImage)

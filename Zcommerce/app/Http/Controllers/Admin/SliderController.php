@@ -55,10 +55,12 @@ class SliderController extends Controller
      */
     public function store(CreateSliderRequest $request)
     {
+  
+
         $slider = Slider::create($request->all());
 
-        // if ($request->hasFile('image'))
-        //     $slider->saveImage($request->file('image'), true);
+        if ($request->hasFile('image'))
+         $slider->saveImage($request->file('image'), true);
 
         
 
