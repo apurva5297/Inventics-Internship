@@ -26,8 +26,8 @@ class UpdateSliderRequest extends Request
         return [
            'title' => 'max:255',
            'sub_title' => 'max:255',
-           'image' => 'mimes:jpg,jpeg,png,gif',
-           'thumb' => 'mimes:jpg,jpeg,png,gif',
+          // 'image' => 'mimes:jpg,jpeg,png,gif',
+          // 'thumb' => 'mimes:jpg,jpeg,png,gif',
         ];
     }
 }

@@ -55,60 +55,26 @@ class SliderController extends Controller
      */
     public function store(CreateSliderRequest $request)
     {
-  
-
+   
         $slider = Slider::create($request->all());
       
-
-        if ($request->hasFile('image'))
-        $slider->saveImage($request->file('image'), true);
-        // {
-        //     foreach ( $request->image as $image) {
-        //         $imageName = request()->image->getClientOriginalName();
-        //         request()->image->move(public_path('upload'), $imageName);
-        
-        
-        //         return response()->json(['uploaded' => '/upload/'.$imageName]);
-                
-        //     }
-        // }
-    
-        // if ($request->hasFile('image'))
-        //  { 
-        // $data=[];
-        // foreach($request->file('image') as $image)
-        //     {
-      
-        //        // $image->move(public_path().'/images/', $name);  
-        //         $data[]=[
-        //            'name' => $image->getClientOriginalName(),
-        //         ];  
-        //     }
-
-        //     $file= new Slider();
-        //     $file->image=json_encode($data);
-        //     $file->save();
-        //  }
-         
-
-        
-           
-       // $slider->saveImage($request->file('image'), true);
-
-        
+          if($request->hasfile('image'))
+              $slider->savemultiImage($request->file('image'), true);
+          
 
         if ($request->hasFile('thumb'))
-            $slider->saveImage($request->file('thumb'));
+            $slider->savemultiImage($request->file('thumb'));
 
         return back()->with('success', trans('messages.created', ['model' => $this->model_name]));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
+
     public function edit(Slider $slider)
     {
         return view('admin.slider._edit', compact('slider'));
@@ -131,7 +97,7 @@ class SliderController extends Controller
         }
 
         if ($request->hasFile('image'))
-            $slider->saveImage($request->file('image'), true);
+            $slider->savemultiImage($request->file('image'), true);
 
         if ($request->hasFile('thumb') || ($request->input('delete_thumb') == 1)){
             if($slider->images->first())
@@ -139,7 +105,7 @@ class SliderController extends Controller
         }
 
         if ($request->hasFile('thumb'))
-            $slider->saveImage($request->file('thumb'));
+            $slider->savemultiImage($request->file('thumb'));
 
         return back()->with('success', trans('messages.updated', ['model' => $this->model_name]));
     }

@@ -80,7 +80,7 @@
         <div class="col-md-3 nopadding-left">
           <div class="fileUpload btn btn-primary btn-block btn-flat">
             <span>{{ trans('app.form.select') }}</span>
-            <input type="file" name="image" id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
+            <input type="file" name="image[]" multiple id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
         </span>
       @endif
       <span class="spacer5"></span>
-      <input type="file" name="thumb" style="display: inline-block;" />
+      <input type="file" name="thumb[]" multiple style="display: inline-block;" />
       <div class="help-block with-errors">{{ trans('help.slider_thumb_hint') }}</div>
     </div>
   </div>
