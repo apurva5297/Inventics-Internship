@@ -33,6 +33,7 @@
 								</p>
 				          	</td>
 					        <td>
+								
 								<img src="{{ get_storage_file_url(optional($slider->featuredImage)->path, 'slider_thumb') }}" class="thumbnail" alt="{{ trans('app.slider_image') }}">
 					        </td>
 				          	<td>

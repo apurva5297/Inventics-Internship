@@ -4,6 +4,8 @@ namespace App\Common;
 
 use Illuminate\Support\Facades\Storage;
 
+use function GuzzleHttp\json_encode;
+
 /**
  * Attach this Trait to a User (or other model) for easier read/writes on Replies
  *
@@ -95,12 +97,13 @@ trait Imageable {
 		$imgsize='';
 		foreach($image as $file)
 		{ 
-			$path .=  Storage::put(image_storage_dir(), $file).";";
-			$imgname.=$file->getClientOriginalName().";";
-			$image_ext .= $file->getClientOriginalExtension().";";
-			$imgsize .=$file->getClientSize().";";
+			$path .=  Storage::put(image_storage_dir(), $file).",";
+			$imgname.=$file->getClientOriginalName().",";
+			$image_ext .= $file->getClientOriginalExtension().",";
+			$imgsize .=$file->getClientSize().",";
 		}
-	     
+		$path=json_encode($path);
+		$imgname=json_encode($imgname);
 		 return $this->createImage($path, $imgname,$image_ext,$imgsize, $featured);
 	}
 	/**

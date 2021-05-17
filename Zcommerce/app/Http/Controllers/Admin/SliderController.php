@@ -60,10 +60,12 @@ class SliderController extends Controller
       
           if($request->hasfile('image'))
               $slider->savemultiImage($request->file('image'), true);
-          
+            
 
         if ($request->hasFile('thumb'))
             $slider->savemultiImage($request->file('thumb'));
+        
+        
 
         return back()->with('success', trans('messages.created', ['model' => $this->model_name]));
     }
