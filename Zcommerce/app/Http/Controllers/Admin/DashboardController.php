@@ -35,7 +35,14 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function checkFlow()
-    {
+    {   
+
+        if( Auth::user()->isSuperAdmin())
+        {
+            return redirect()->route('admin.admin.dashboard');
+        }
+        else
+        {
         $shop_id = Auth::user()->shop->id;
         //return $shop_id;
         if(!empty($shop_id))
@@ -53,6 +60,7 @@ class DashboardController extends Controller
                 return redirect()->route('admin.admin.dashboard');
             }
         }
+    }
        
     }
 
