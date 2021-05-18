@@ -59,11 +59,11 @@ class SliderController extends Controller
         $slider = Slider::create($request->all());
       
           if($request->hasfile('image'))
-              $slider->savemultiImage($request->file('image'), true);
+              $slider->saveImage($request->file('image'), true);
             
 
         if ($request->hasFile('thumb'))
-            $slider->savemultiImage($request->file('thumb'));
+            $slider->saveImage($request->file('thumb'));
         
         
 
@@ -99,7 +99,7 @@ class SliderController extends Controller
         }
 
         if ($request->hasFile('image'))
-            $slider->savemultiImage($request->file('image'), true);
+            $slider->saveImage($request->file('image'), true);
 
         if ($request->hasFile('thumb') || ($request->input('delete_thumb') == 1)){
             if($slider->images->first())
@@ -107,7 +107,7 @@ class SliderController extends Controller
         }
 
         if ($request->hasFile('thumb'))
-            $slider->savemultiImage($request->file('thumb'));
+            $slider->saveImage($request->file('thumb'));
 
         return back()->with('success', trans('messages.updated', ['model' => $this->model_name]));
     }

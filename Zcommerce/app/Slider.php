@@ -28,6 +28,7 @@ class Slider extends Model
                     'sub_title_color',
                     'link',
                     'order',
+                    'store_type',
                 ];
 
     /**

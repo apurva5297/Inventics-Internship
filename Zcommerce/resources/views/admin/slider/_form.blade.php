@@ -60,6 +60,12 @@
     </div>
   </div>
 </div>
+<div class="form-group">
+  {!! Form::label('store_type', trans('app.form.store_type').'*', ['class' => 'with-help']) !!}
+  <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="{{ trans('help.store_type_group') }}"></i>
+  {!! Form::select('store_type', ['Games'=>'Games','Electronics'=>'Electronics','Medical'=>'Medical','Book'=>'Book','Sports'=>'Sports','Pets'=>'Pets','Fashion'=>'Fashion','Food Market'=>'Food Market'], null, ['class' => 'form-control select2-normal', 'placeholder' => trans('app.placeholder.store_type')]) !!}
+  <div class="help-block with-errors"></div>
+</div>
 
 <div class="row">
   <div class="col-md-8">
@@ -80,7 +86,7 @@
         <div class="col-md-3 nopadding-left">
           <div class="fileUpload btn btn-primary btn-block btn-flat">
             <span>{{ trans('app.form.select') }}</span>
-            <input type="file" name="image[]" multiple id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
+            <input type="file" name="image" id="uploadBtn" class="upload" {{ isset($slider) ? '' : 'required' }} />
           </div>
         </div>
       </div>
@@ -98,7 +104,7 @@
         </span>
       @endif
       <span class="spacer5"></span>
-      <input type="file" name="thumb[]" multiple style="display: inline-block;" />
+      <input type="file" name="thumb" style="display: inline-block;" />
       <div class="help-block with-errors">{{ trans('help.slider_thumb_hint') }}</div>
     </div>
   </div>

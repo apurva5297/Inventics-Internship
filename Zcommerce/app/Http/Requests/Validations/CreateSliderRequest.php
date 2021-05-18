@@ -26,8 +26,8 @@ class CreateSliderRequest extends Request
         return [
            'title' => 'max:255',
            'sub_title' => 'max:255',
-           //'image' => 'required|mimes:jpg,jpeg,png,gif',
-          // 'thumb' => 'mimes:jpg,jpeg,png,gif',
+           'image' => 'required|mimes:jpg,jpeg,png,gif',
+           'thumb' => 'mimes:jpg,jpeg,png,gif',
         ];
     }
 }

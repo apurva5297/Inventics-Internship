@@ -89,23 +89,23 @@ trait Imageable {
 
         return $this->createImage($path, $image->getClientOriginalName(), $image->getClientOriginalExtension(), $image->getClientSize(), $featured);
 	}
-	public function savemultiImage($image, $featured = null)
-	{
-		$path='';
-		$imgname='';
-		$image_ext='';
-		$imgsize='';
-		foreach($image as $file)
-		{ 
-			$path .=  Storage::put(image_storage_dir(), $file).",";
-			$imgname.=$file->getClientOriginalName().",";
-			$image_ext .= $file->getClientOriginalExtension().",";
-			$imgsize .=$file->getClientSize().",";
-		}
-		$path=json_encode($path);
-		$imgname=json_encode($imgname);
-		 return $this->createImage($path, $imgname,$image_ext,$imgsize, $featured);
-	}
+	// public function savemultiImage($image, $featured = null)
+	// {
+	// 	$path='';
+	// 	$imgname='';
+	// 	$image_ext='';
+	// 	$imgsize='';
+	// 	foreach($image as $file)
+	// 	{ 
+	// 		$path .=  Storage::put(image_storage_dir(), $file).",";
+	// 		$imgname.=$file->getClientOriginalName().",";
+	// 		$image_ext .= $file->getClientOriginalExtension().",";
+	// 		$imgsize .=$file->getClientSize().",";
+	// 	}
+	// 	$path=json_encode($path);
+	// 	$imgname=json_encode($imgname);
+	// 	 return $this->createImage($path, $imgname,$image_ext,$imgsize, $featured);
+	// }
 	/**
      * Save images from external URL
      *
@@ -153,19 +153,7 @@ trait Imageable {
 
 		return;
 	}
-	// public function deletemultiImage($image = Null)
-	// {
-	// 	if (!$image)
-	// 		$image = $this->image;
-
-	// 	if (optional($image)->path) {
-	//     	Storage::delete($image->path);
-	// 		Storage::deleteDirectory(image_cache_path($image->path));
-	// 	    return $image->delete();
-	// 	}
-
-	// 	return;
-	// }
+	
 
 	/**
 	 * Deletes the Featured Image of this model.

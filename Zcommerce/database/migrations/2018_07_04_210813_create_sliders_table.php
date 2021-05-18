@@ -20,6 +20,7 @@ class CreateSlidersTable extends Migration
             $table->string('sub_title')->nullable();
             $table->string('sub_title_color', 20)->default('#b5b5b5')->nullable();
             $table->text('link')->nullable();
+            $table->string('store_type')->nullable();
             $table->integer('order')->default(100);
             $table->timestamps();
    

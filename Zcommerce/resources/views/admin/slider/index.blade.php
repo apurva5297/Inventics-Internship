@@ -44,6 +44,8 @@
 					          	{{ trans('app.order') . ': ' }}<strong>{!! $slider->order !!}</strong>
 								<br/>
 					          	{{ trans('app.link') . ': ' }}<strong>{!! $slider->link !!}</strong>
+								  <br/>
+					          	{{ trans('app.store_type') . ': ' }}<strong>{!! $slider->store_type !!}</strong>
 				          	</td>
 				          	<td>
 					          	{{ $slider->created_at->toFormattedDateString() }}
