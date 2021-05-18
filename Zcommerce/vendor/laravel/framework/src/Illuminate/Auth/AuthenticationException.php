@@ -53,6 +53,13 @@ class AuthenticationException extends Exception
      */
     public function redirectTo()
     {
+        if(Auth::user()->isSuperAdmin())
+        {
+        return redirect()->route('admin.dashboard');
+        }
+        else    
+        {
         return $this->redirectTo;
+        }
     }
 }
