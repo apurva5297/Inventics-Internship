@@ -51,7 +51,7 @@ class DashboardController extends Controller
              
             $products = Product::where('shop_id',$shop_id)->get();
             $inventories = Inventory::where('shop_id',$shop_id)->get();
-            if(count($products) < 1 || count($inventories) < 1 || !$shops->image || !$shops->primaryAddress)
+            if(count($products) < 1 || count($inventories) < 1 || empty($shops->image) || !$shops->primaryAddress)
             {
                 return view('admin.dashboard.check_flow', compact('products','inventories','shops'));
             }

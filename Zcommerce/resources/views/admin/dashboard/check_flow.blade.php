@@ -356,7 +356,7 @@
               <h3>Add your first product</h3>
               <p>Add your catalog to present in your shop.</p>
               @if(count($products) < 0)
-              <a href="" class="btn btn-success">Add Product</a>
+              <a href="{{ route('admin.catalog.product.create') }}" class="btn btn-success">Add Product</a>
               @endif
             </div>
 
@@ -364,7 +364,7 @@
               <h3>Add your first inventory</h3>
               <p>Create your inventory by that your shop product ready for customer</p> 
               @if(count($inventories) < 0)
-              <a href="" class="btn btn-success">Add Inventory</a>
+              <a href="{{ route('admin.stock.inventory.index')}}" class="btn btn-success">Add Inventory</a>
               @endif
             </div>
 
@@ -372,7 +372,7 @@
               <h3>Add your shop logo</h3>
               <p>create your logo and upload to make your shop more attractive</p>
               @if(empty($shops->image))
-              <a href="" class="btn btn-success">Logo & Banner</a>
+              <a href="{{ route('admin.setting.system.general')}}" class="btn btn-success">Logo & Banner</a>
               @endif
             </div>
 
@@ -380,7 +380,7 @@
               <h3>Add your shop location</h3>
               <p>Your shop location is helpful for your customer.</p>
               @if(!$shops->primaryAddress)
-              <a href="" class="btn btn-success">Shop Address</a>
+              <a href="{{ route('admin.system.setting.general.index')}}" class="btn btn-success">Shop Address</a>
               @endif
             </div>
         </div>
