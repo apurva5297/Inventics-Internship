@@ -59,9 +59,9 @@ class ProfileController extends Controller
             $country = Country::where('name',$request->country_name)->first();
             $state = State::where('name',$request->state_name)->first();
             //return $state;
-        	$check_address = Address::where(['addressable_id'=>$users->shop_id, 'addressable_type'=>'App\Shop','address_type'=>'Primary'])->first();
+        	$check_address = Address::where(['addressable_id'=>$users->shop_id, 'addressable_type'=>'App\Shop'])->first();
         	$data = array(
-        		'address_type' => 'Primary',
+        		'address_type' => $request->address_type,
         		'address_line_1' => $request->address_line_1,
         		'address_line_2' => $request->address_line_2,
         		'city' => $request->city,
@@ -73,14 +73,22 @@ class ProfileController extends Controller
         		'longitude' => $request->longitude,
         		'addressable_id' => $users->shop_id,
         		'addressable_type' => 'App\Shop',
+                'house_flat' => $request->house_flat,
+                'landmark' => $request->landmark,
+               
         	);
 
 
 
-        	if($check_address)
-        		Address::where(['addressable_id'=>$users->shop_id, 'addressable_type'=>'App\Shop','address_type'=>'Primary'])->update($data);
+        	// if($check_address)
+        	// 	Address::where(['addressable_id'=>$users->shop_id, 'addressable_type'=>'App\Shop','address_type'=>'Primary'])->update($data);
+        	// else
+        	// 	Address::insert($data);
+            if($check_address)
+        		Address::where(['addressable_id'=>$users->shop_id, 'addressable_type'=>'App\Shop'])->update($data);
         	else
         		Address::insert($data);
+
 
             $data['state_name'] = $request->state_name;
             $data['country_name'] = $request->country_name;

@@ -20,7 +20,7 @@ class CreateAddressesTable extends Migration
 
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('address_type')->default('Primary')->nullable();
+            $table->string('address_type');
             $table->string('address_title')->nullable();
             $table->string('address_line_1')->nullable();
             $table->string('address_line_2')->nullable();
@@ -33,6 +33,8 @@ class CreateAddressesTable extends Migration
             $table->float('longitude')->nullable();
             $table->bigInteger('addressable_id')->unsigned();
             $table->string('addressable_type');
+            $table->string('house_flat');
+            $table->string('landmark');
             $table->timestamps();
 
             $table->foreign('country_id')->references('id')->on('countries');

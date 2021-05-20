@@ -372,7 +372,7 @@
               <h3>Add your shop logo</h3>
               <p>create your logo and upload to make your shop more attractive</p>
               @if(empty($shops->image))
-              <a href="{{ route('admin.setting.system.general')}}" class="btn btn-success">Logo & Banner</a>
+              <a href="{{ url('admin/setting/general') }}" class="btn btn-success">Logo & Banner</a>
               @endif
             </div>
 
@@ -380,7 +380,7 @@
               <h3>Add your shop location</h3>
               <p>Your shop location is helpful for your customer.</p>
               @if(!$shops->primaryAddress)
-              <a href="{{ route('admin.system.setting.general.index')}}" class="btn btn-success">Shop Address</a>
+              <a href="{{ url('admin/setting/general') }}" class="btn btn-success">Shop Address</a>
               @endif
             </div>
         </div>
