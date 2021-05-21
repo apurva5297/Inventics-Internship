@@ -11,21 +11,21 @@
         <div class="container">
             <div class="row align-items-lg-center">
             <div class="col-lg-6 order-2 order-lg-1">
-                <h1 class="main-heading color-black">Kiddotrack Is Just What Schools and Parents need</h1>
+                <h1 class="main-heading color-black">Earn from home with Zero Investment</h1>
                 <p class="paragraph">Kiddotrack helps schools and parents to track the school bus and receive important notifications on their mobile phone. It is an innovative school bus tracker without installing GPS devices! A cost effective solution that has ready Web and Mobile Apps for your school and parents.</p>
                 <div class="download-buttons">
                 <a href="#" class="google-play">
                   <i class="fab fa-google-play"></i>
                   <div class="button-content">
-                    <h6>Google Play <span>Driver App</span></h6>
+                    <h5>Google Play <span><h5> Download and Earn on Ziggle</h5></span></h5>
                   </div>
                 </a>
-                <a href="#" class="apple-store">
+                {{-- <a href="#" class="apple-store">
                   <i class="fab fa-google-play"></i>
                   <div class="button-content">
                     <h6>Google Play <span>Parent App</span></h6>
                   </div>
-                </a>
+                </a> --}}
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2">
@@ -42,7 +42,7 @@
   <!--feature section start-->
   <section id="benifits">
     <div class="container">
-      <h4 class="section-heading color-black">Get surprised by amazing Benifits.</h4>
+      <h4 class="section-heading color-black">Steps to earn on Ziggle</h4>
       <div class="row">
       <div class="col-lg-4 col-md-6">
           <div class="feature__box feature__box--3">
@@ -51,7 +51,7 @@
             </div>
             <div class="feature__box__wrapper">
               <div class="feature__box--content feature__box--content-3">
-                <h3>Easy Notifications</h3>
+                <h3>Find products you want to sell at wholesale price</h3>
                 <p class="paragraph dark">No students cards needed to
                 capture In-Bus Attendance
                 and send parents notifications
@@ -68,7 +68,7 @@
             </div>
             <div class="feature__box__wrapper">
               <div class="feature__box--content feature__box--content-2">
-                <h3>Work Smartly</h3>
+                <h3>Add your own margin with the product</h3>
                 <p class="paragraph dark">Kiddotrack Driver and Matron’s
                 App help them to work smartly,
                 and automagically sends all information in app
@@ -84,7 +84,7 @@
             </div>
             <div class="feature__box__wrapper">
               <div class="feature__box--content feature__box--content-4">
-                <h3>Security</h3>
+                <h3>Share them on your social networking site </h3>
                 <p class="paragraph dark">Fully secured with highest data privacy standards. 
                     Guaranteed uptime to ensure continuous monitoring 
                 </p>
@@ -100,7 +100,7 @@
             </div>
             <div class="feature__box__wrapper">
               <div class="feature__box--content feature__box--content-1">
-                <h3>Track Without GPS</h3>
+                <h3>Deliver the product and collect COD or make online payment</h3>
                 <p class="paragraph dark">No GPS devices to be fitted. Get started instantly with mobile apps.</p>
               </div>
             </div>
@@ -113,7 +113,7 @@
             </div>
             <div class="feature__box__wrapper">
               <div class="feature__box--content feature__box--content-4">
-                <h3>Complete Tracking</h3>
+                <h3>Earn money from home with Zero investment</h3>
                 <p class="paragraph dark">Parents have full visibility of their
                      kids pickup and drop off times
                 </p>
@@ -121,7 +121,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        {{-- <div class="col-lg-4 col-md-6">
           <div class="feature__box feature__box--4">
             <div class="icon icon-1">
               <i class="fad fa-solar-system"></i>
@@ -134,7 +134,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </section>
@@ -144,7 +144,7 @@
   <section class="growth" id="feature">
     <div class="growth__wrapper">
       <div class="container">
-        <h2 class="section-heading color-black">Features</h2>
+        <h2 class="section-heading color-black">We ensure your success</h2>
         <div class="row">
           <div class="col-lg-6">
             <div class="growth__box">
@@ -152,7 +152,7 @@
                 <i class="fad fa-user-astronaut"></i>
               </div>
               <div class="content">
-                <h3>LIVE BUS TRACKING</h3>
+                <h3>Quality products at wholesale price</h3>
                 <p class="paragraph dark"> during daily commutes and field trips. Receive instant notification whenever speed limit is exceeded.</p>
               </div>
             </div>
@@ -163,7 +163,7 @@
                 <i class="fad fa-lightbulb-on"></i>
               </div>
               <div class="content">
-                <h3>GET ALERTS</h3>
+                <h3>Free website</h3>
                 <p class="paragraph dark"> when kids are on-board and off-board the bus.</p>
               </div>
             </div>
@@ -174,13 +174,13 @@
                 <i class="fad fa-solar-system"></i>
               </div>
               <div class="content">
-                <h3>NO MORE WAITING</h3>
+                <h3>Regular update on each order</h3>
                 <p class="paragraph dark"> in the streets. Receive automatic notification when the bus is nearby
 </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          {{-- <div class="col-lg-6">
             <div class="growth__box">
               <div class="icon">
                 <i class="fad fa-backpack"></i>
@@ -191,15 +191,15 @@
                 <p class="paragraph dark">and securely with the bus matron, the school and the other parents </p>
               </div>
             </div>
-          </div>
+          </div> --}}
          
-        <div class="row">
+        {{-- <div class="row">
           <div class="button__wrapper">
             <a href="#contact" class="button">
               <span>GET STARTED <i class="fad fa-long-arrow-right"></i></span>
             </a>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </section>
