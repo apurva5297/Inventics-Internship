@@ -1,10 +1,13 @@
 
 
 <?php
+// Welcome routes
+Route::get("/welcome","WelcomeController@index")->name("welcome.index");
+Route::get("/about","WelcomeController@about")->name("welcome.about");
+Route::get("/privacy","WelcomeController@privacy")->name("welcome.privacy");
+Route::get("/terms","WelcomeController@terms")->name("welcome.terms");
+//Route::get("/welcome","WelcomeController@index")->name("welcome.index");
 
-Route::get('/welcome', function () {
-    return view('welcome.index');
-});
 // Common
 include('Common.php');
 

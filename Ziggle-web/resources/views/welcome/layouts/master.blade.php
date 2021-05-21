@@ -33,13 +33,13 @@
     <div class="container">
       <div class="header__wrapper">
         <div class="header__logo" >
-          <a href="#home">
+          <a href="/welcome">
             <img style="width:50%;height:50%;" src="assets/images/loading-img-kiddo.png" alt="logo">
           </a>
         </div>
         <div class="header__nav ">
           <ul class="header__nav-primary">
-            <li><a href="#home"><i class="fad fa-home-alt"></i>Home</a></li>
+            <li><a href="/welcome"><i class="fad fa-home-alt"></i>Home</a></li>
             <li><a href="#benifits">Benifits</a></li>
             <li><a href="#feature">Features</a></li>
             <li><a href="#feedback">Feedbacks</a></li>
@@ -88,17 +88,17 @@
               <div class="footer__list">
                 <ul>
                   <li>Explore</li>
-                  <li><a href="/about">About</a></li>
-                  <li><a href="/#feature">Features</a></li>
-                  <li><a href="/#pricing">Pricing</a></li>
+                  <li><a href="{{route('welcome.about')}}">About</a></li>
+                  <li><a href="#feature">Features</a></li>
+                  <li><a href="#pricing">Pricing</a></li>
                 </ul>
               </div>
               <div class="footer__list">
                 <ul>
                   <li>Help</li>
-                  <li><a href="/privacy">Privacy Policy</a></li>
-                  <li><a href="/terms">Terms of Service</a></li>
-                  <li><a href="/#contact">Contact Us</a></li>
+                  <li><a href="{{route('welcome.privacy')}}">Privacy Policy</a></li>
+                  <li><a href="{{route('welcome.terms')}}">Terms of Service</a></li>
+                  <li><a href="#contact">Contact Us</a></li>
                 </ul>
               </div>
               <div class="download-buttons">
