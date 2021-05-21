@@ -1,6 +1,6 @@
 @extends('welcome.layouts.master')
 @section('title')
-{{ 'School bus tracking application | Kiddotrack'}}
+{{ 'ZIGGLE'}}
 @endsection
 @section('content')
 

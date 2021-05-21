@@ -1,6 +1,6 @@
 @extends('welcome.layouts.master')
 @section('title')
-{{ 'About us | Kiddotrack'}}
+{{ 'About us | ZIGGLE '}}
 @endsection
 @section('content')
 
@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row align-items-lg-center">
               <div class="col-lg-12 order-2 order-lg-1">
-                  <h1 class="main-heading color-black">About Kiddotrack</h1>
+                  <h1 class="main-heading color-black"> Why use Ziggle?</h1>
                   <p class="paragraph">Kiddotrack helps schools and parents to track the school bus and receive important notifications on their mobile phone. It is an innovative school bus tracker without installing GPS devices! A cost effective solution that has ready Web and Mobile Apps for your school and parents.</p>
               </div>
             </div>
@@ -23,7 +23,7 @@
   <!--client section start-->
   <section class="clients-sec" id="feedback">
     <div class="container">
-      <h2 class="section-heading color-black">Hear from what others had to say.</h2>
+      <h2 class="section-heading color-black">Our Trusted Team</h2>
       <div class="testimonial__wrapper">
         <div class="client client-01 active">
           <div class="image">

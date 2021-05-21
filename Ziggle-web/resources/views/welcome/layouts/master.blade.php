@@ -40,13 +40,13 @@
         <div class="header__nav ">
           <ul class="header__nav-primary">
             <li><a href="/welcome"><i class="fad fa-home-alt"></i>Home</a></li>
-            <li><a href="#benifits">Benifits</a></li>
-            <li><a href="#feature">Features</a></li>
-            <li><a href="#feedback">Feedbacks</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#preview">Preview</a></li>
-            <!-- <li><a href="#contact">Contact Us</a></li> -->
-            <li><a href="http://admin.kiddotrack.com/" target="_blank">Login</a></li>
+            <li><a href="#benifits">About Us</a></li>
+            <li><a href="#feature">Ziggle Blog</a></li>
+            {{-- <li><a href="#feedback">Feedbacks</a></li> --}}
+            <li><a href="#contact">Contact Us</a></li>
+            {{-- //<li><a href="#preview">Preview</a></li> --}}
+            
+            <li><a href="http://admin.kiddotrack.com/" target="_blank">Supplier Login</a></li>
           </ul>
           <span><i class="fas fa-times"></i></span>
         </div>
