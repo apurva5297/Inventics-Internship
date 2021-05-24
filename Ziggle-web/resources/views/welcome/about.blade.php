@@ -5,20 +5,91 @@
 @section('content')
 
   <!--header section end-->
-  <div id="about">
-  <section class="hero hero-2">
-      <div class="hero__wrapper">
+ <section class="pricing" id="about">
+  <div class="pricing__wrapper">
+
         <div class="container">
-            <div class="row align-items-lg-center">
-              <div class="col-lg-12 order-2 order-lg-1">
-                  <h1 class="main-heading color-black"> Why use Ziggle?</h1>
-                  <p class="paragraph">Kiddotrack helps schools and parents to track the school bus and receive important notifications on their mobile phone. It is an innovative school bus tracker without installing GPS devices! A cost effective solution that has ready Web and Mobile Apps for your school and parents.</p>
+          <h2 class="section-heading color-black"></h2>
+          <p class="text-left" style="font-size: 30px"><h2 class="section-heading color-black">Why use Ziggle?</h2></p>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="pricing__single pricing__single-1">
+                {{-- <div class="icon">
+                  <i class="fad fa-user-graduate"></i>
+                </div> --}}
+                <h4 style="padding-bottom: 10%">Made in India</h4>
+                {{-- <h3>Rs 0.00</h3>
+                <h6>Per student/ month</h6>
+                <div class="list">
+                  <ul>
+                    <li>100 Students registation</li>
+                    <li>100 parent's app accounts</li>
+                    <li>5 Driver & vehicles</li>
+                    <li>1 School</li>
+                    <li>Basic customer support</li>
+                    <li>50 trips per month</li>
+                    <li>5 Routes only</li>
+                  </ul>
+                </div>
+                <a href="#contact" class="button">
+                  <span>GET STARTED <i class="fad fa-long-arrow-right"></i></span>
+                </a> --}}
               </div>
             </div>
+            <div class="col-lg-4">
+              <div class="pricing__single pricing__single-2">
+                {{-- <div class="icon">
+                  <i class="fad fa-user-cowboy"></i>
+                </div> --}}
+                <h4 style="padding-bottom: 10%">Trusted online reselling app</h4>
+                {{-- <h3>Rs 10.00</h3>
+                <h6>Per student/ month</h6>
+                <div class="list">
+                  <ul>
+                    <li>5000 Students registation</li>
+                    <li>5000 parent's app accounts</li>
+                    <li>500 Driver & vehicles</li>
+                    <li>100 School</li>
+                    <li>Premium customer support</li>
+                    <li>5000 trips per month</li>
+                    <li>500 Routes only</li>
+                  </ul>
+                </div>
+                <a href="#contact" class="button">
+                  <span>GET STARTED <i class="fad fa-long-arrow-right"></i></span>
+                </a> --}}
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pricing__single pricing__single-3">
+                {{-- <div class="icon">
+                  <i class="fad fa-user-astronaut"></i>
+                </div> --}}
+                <h4 style="padding-bottom: 10%">Business with zero investment</h4>
+                {{-- <h3>Rs 15.00</h3>
+                <h6>Per student/ month</h6>
+                <div class="list">
+                  <ul>
+                    <li>Unlimited Students registation</li>
+                    <li>Unlimited parent's app accounts</li>
+                    <li>Unlimited Driver & vehicles</li>
+                    <li>Unlimited School</li>
+                    <li>Gold customer support</li>
+                    <li>Unlimited trips per month</li>
+                    <li>Unlimited Routes</li>
+                  </ul>
+                </div>
+                <a href="#contact" class="button">
+                  <span>GET STARTED <i class="fad fa-long-arrow-right"></i></span>
+                </a> --}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-  </section>
-  </div>
+    </section>
+
+  
 
   <!--client section start-->
   <section class="clients-sec" id="feedback">

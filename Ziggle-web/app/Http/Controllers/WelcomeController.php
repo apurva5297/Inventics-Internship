@@ -15,12 +15,12 @@ class WelcomeController extends Controller
     {
         return view('welcome.about');
     }
-    public function privacy()
+    public function blog()
     {
-        return view('welcome.privacy');
+        return view('welcome.blog');
     }
-    public function terms()
+    public function contact()
     {
-        return view('welcome.terms');
+        return view('welcome.contact');
     }
 }

@@ -40,10 +40,10 @@
         <div class="header__nav ">
           <ul class="header__nav-primary">
             <li><a href="/welcome"><i class="fad fa-home-alt"></i>Home</a></li>
-            <li><a href="#benifits">About Us</a></li>
-            <li><a href="#feature">Ziggle Blog</a></li>
+            <li><a href="{{route('welcome.about')}}">About Us</a></li>
+            <li><a href="">Ziggle Blog</a></li>
             {{-- <li><a href="#feedback">Feedbacks</a></li> --}}
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="{{route('welcome.contact')}}">Contact Us</a></li>
             {{-- //<li><a href="#preview">Preview</a></li> --}}
             
             <li><a href="http://admin.kiddotrack.com/" target="_blank">Supplier Login</a></li>
@@ -87,33 +87,34 @@
             <div class="footer__content-wrapper">
               <div class="footer__list">
                 <ul>
-                  <li>Explore</li>
-                  <li><a href="{{route('welcome.about')}}">About</a></li>
-                  <li><a href="#feature">Features</a></li>
-                  <li><a href="#pricing">Pricing</a></li>
+                  <li>Explore</li> 
+                  <li><a href="{{route('welcome.about')}}">About Us</a></li>
+                  <li><a href="">Ziggle Blog</a></li>
+                  {{-- <li><a href="#pricing">Pricing</a></li> --}}
                 </ul>
               </div>
               <div class="footer__list">
                 <ul>
-                  <li>Help</li>
-                  <li><a href="{{route('welcome.privacy')}}">Privacy Policy</a></li>
-                  <li><a href="{{route('welcome.terms')}}">Terms of Service</a></li>
-                  <li><a href="#contact">Contact Us</a></li>
+                   <li>Help</li>
+                  {{-- <li><a href="{{route('welcome.privacy')}}">Privacy Policy</a></li>
+                  <li><a href="{{route('welcome.terms')}}">Terms of Service</a></li> --}}
+                  <li><a href="{{route('welcome.contact')}}">Contact Us</a></li>
+                  <li><a  href="http://admin.kiddotrack.com/">Supplier Login</a></li>
                 </ul>
               </div>
               <div class="download-buttons">
                 <a href="#" class="google-play">
                   <i class="fab fa-google-play"></i>
                   <div class="button-content">
-                    <h6>Google Play <span>Driver App</span></h6>
+                    <h6>Google Play <span><h6>Get it on Google play</h6></span></h6>
                   </div>
                 </a>
-                <a href="#" class="apple-store">
+                {{-- <a href="#" class="apple-store">
                   <i class="fab fa-google-play"></i>
                   <div class="button-content">
                     <h6>Google Play <span>Parent App</span></h6>
                   </div>
-                </a>
+                </a> --}}
                 <!-- <a href="#" class="apple-store">
                   <i class="fab fa-apple"></i>
                   <div class="button-content">

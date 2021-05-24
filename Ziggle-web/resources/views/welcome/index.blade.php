@@ -100,8 +100,23 @@
             </div>
             <div class="feature__box__wrapper">
               <div class="feature__box--content feature__box--content-1">
-                <h3>Deliver the product and collect COD or make online payment</h3>
+                <h3>Deliver the product</h3>
                 <p class="paragraph dark">No GPS devices to be fitted. Get started instantly with mobile apps.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="feature__box feature__box--4">
+            <div class="icon icon-2">
+              <i class="fad fa-rocket-launch"></i>
+            </div>
+            <div class="feature__box__wrapper">
+              <div class="feature__box--content feature__box--content-4">
+                <h3>Collect COD or make online payment</h3>
+                <p class="paragraph dark">Parents have full visibility of their
+                     kids pickup and drop off times
+                </p>
               </div>
             </div>
           </div>
@@ -121,20 +136,7 @@
             </div>
           </div>
         </div>
-        {{-- <div class="col-lg-4 col-md-6">
-          <div class="feature__box feature__box--4">
-            <div class="icon icon-1">
-              <i class="fad fa-solar-system"></i>
-            </div>
-            <div class="feature__box__wrapper">
-              <div class="feature__box--content feature__box--content-4">
-                <h3>Budget Payment</h3>
-                <p class="paragraph dark">Pay on monthly basis. No upfront payments.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> --}}
+    
       </div>
     </div>
   </section>
@@ -176,37 +178,28 @@
               <div class="content">
                 <h3>Regular update on each order</h3>
                 <p class="paragraph dark"> in the streets. Receive automatic notification when the bus is nearby
-</p>
+                  </p>
               </div>
             </div>
           </div>
-          {{-- <div class="col-lg-6">
+           <div class="col-lg-6">
             <div class="growth__box">
               <div class="icon">
                 <i class="fad fa-backpack"></i>
               </div>
               <div class="content">
-                <h3>COMMUNICATE INSTANTLY 
-</h3>
+                <h3>Trusted Reselling App </h3>
                 <p class="paragraph dark">and securely with the bus matron, the school and the other parents </p>
               </div>
             </div>
-          </div> --}}
-         
-        {{-- <div class="row">
-          <div class="button__wrapper">
-            <a href="#contact" class="button">
-              <span>GET STARTED <i class="fad fa-long-arrow-right"></i></span>
-            </a>
-          </div>
-        </div> --}}
+          </div> 
       </div>
     </div>
   </section>
   <!--growth section end-->
 
-  <!--step section start-->
-  <!-- <section class="step">
+  {{-- <!--step section start-->
+   <section class="step">
     <div class="step__wrapper">
       <div class="container">
         <h2 class="section-heading color-black">Jumpstart your growth in just few clicks.</h2>
@@ -260,11 +253,11 @@
         </div>
       </div>
     </div>
-  </section> -->
-  <!--step section end-->
+  </section>
+  <!--step section end--> --}}
 
   <!--client section start-->
-  <section class="clients-sec" id="feedback">
+  {{-- <section class="clients-sec" id="feedback">
     <div class="container">
       <h2 class="section-heading color-black">Hear from what others had to say.</h2>
       <div class="testimonial__wrapper">
@@ -344,7 +337,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!--client section end-->
 
   
@@ -354,7 +347,7 @@
 
   <!--screenshot section start-->
   <!--screenshot section end-->
-
+{{-- 
   <!--pricing section start-->
   <section class="pricing" id="pricing">
     <div class="pricing__wrapper">
@@ -437,14 +430,17 @@
       </div>
     </div>
   </section>
-  <!--pricing section end-->
+  <!--pricing section end--> --}}
 
   <!--screenshot section start-->
+<br>
+<br>
+<br>
   <section class="screenshot" id="preview">
     <div class="screenshot__wrapper">
       <div class="container">
         <div class="screenshot__info">
-          <h2 class="section-heading color-black">Have a look at what’s inside the driver app.</h2>
+          <h2 class="section-heading color-black">Have a look at what’s inside the Ziggle app.</h2>
           <div class="screenshot-nav">
             <div class="screenshot-nav-prev"><i class="fad fa-long-arrow-left"></i></div>
             <div class="screenshot-nav-next"><i class="fad fa-long-arrow-right"></i></div>
@@ -453,14 +449,14 @@
       </div>
       <div class="swiper-container screenshot-slider">
         <div class="swiper-wrapper">
-          <div class="swiper-slide screenshot-slide">
-            <img src="assets/images/phone-011.png" alt="image">
+          <div  class="swiper-slide screenshot-slide">
+            <img  src="assets/images/phone-011.png" alt="image">
           </div>
           <div class="swiper-slide screenshot-slide">
             <img src="assets/images/phone-022.png" alt="image">
           </div>
           <div class="swiper-slide screenshot-slide">
-            <img src="assets/images/phone-033.png" alt="image">
+            <img  src="assets/images/phone-033.png" alt="image">
           </div>
           <div class="swiper-slide screenshot-slide">
             <img src="assets/images/phone-044.png" alt="image">
