@@ -1,6 +1,21 @@
 
 
 <?php
+
+// Route::get('/config-cache', function() {
+//     $exitCode = Artisan::call('config:cache');
+//     return 'Config cache cleared';
+// });
+
+//  Route::get('/clear-cache', function() {
+//      $exitCode = Artisan::call('cache:clear');
+//      return 'Application cache cleared';
+//  });
+ 
+//  Route::get('/view-clear', function() {
+//      $exitCode = Artisan::call('view:clear');
+//      return 'View cache cleared';
+//  });
 // Welcome routes
 Route::get("/welcome","WelcomeController@index")->name("welcome.index");
 Route::get("/about","WelcomeController@about")->name("welcome.about");

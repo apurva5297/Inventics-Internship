@@ -1469,7 +1469,8 @@ body.loaded .preloader {
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
 }
-@media (min-width: 991.98px) and (max-width: 1200px) {
+}
+@media (min-width: 991.98px) and (max-width: 1300px) {
     .hero__wrapper {
     padding: 18.4rem 1rem 9.9rem 1rem;
 }
@@ -1483,7 +1484,9 @@ body.loaded .preloader {
 .hero .hero-img {
     -webkit-transform: scale(0.9);
     transform: scale(0.9);
+    
 }
+
 .hero .hero-img::before {
     -webkit-transform: scale(0.7) translateX(-50%);
     transform: scale(0.7) translateX(-50%);
@@ -1521,6 +1524,7 @@ body.loaded .preloader {
     width: 100%;
     margin-top: 5rem;
 }
+
 .hero .hero-img::before {
     -webkit-transform: scale(0.8) translate(-50%,  0);
     transform: scale(0.8) translate(-50%,  0);
@@ -1544,7 +1548,8 @@ body.loaded .preloader {
     margin-top: 1rem;
 }
 .hero .hero-img {
-    width: 100%}
+    width: 100%;
+}
 .hero .hero-img::before {
     -webkit-transform: scale(0.6) translate(-50%,  0);
     transform: scale(0.6) translate(-50%,  0);
@@ -1559,10 +1564,12 @@ body.loaded .preloader {
 }
 .hero .hero-img {
     width: 100% !important;
+  
 }
 .hero .hero-img img {
-    width: 50% !important;
-    height: 50% !important;
+
+    width: 70% !important;
+    height: 70% !important;
     -o-object-fit: cover !important;
     object-fit: cover !important;
 }
@@ -1573,6 +1580,7 @@ body.loaded .preloader {
     top: 10% !important;
     width: 40rem;
     height: 40rem;
+   
 }
 }.hero-2 {
     margin-top: 11.3rem;
@@ -2460,8 +2468,8 @@ body.loaded .preloader {
     transform: scale(1) translate(-50%,  0);
     top: 10%;
     left: 50%;
-    width: 30rem;
-    height: 30rem;
+    width: 40rem;
+    height: 40rem;
 }
 }.pricing {
     width: 100vw;

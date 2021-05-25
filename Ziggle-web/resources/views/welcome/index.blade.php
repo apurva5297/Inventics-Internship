@@ -30,7 +30,7 @@
             </div>
             <div class="col-lg-6 order-1 order-lg-2">
                 <div class="questions-img hero-img">
-                <img src="assets/images/banner.png" alt="image">
+                <img style="width:80%;height:80%;" src="assets/images/banner.png" alt="image">
                 </div>
             </div>
             </div>
@@ -450,19 +450,19 @@
       <div class="swiper-container screenshot-slider">
         <div class="swiper-wrapper">
           <div  class="swiper-slide screenshot-slide">
-            <img  src="assets/images/phone-011.png" alt="image">
+            <img style="width:80%;height:80%;" src="assets/images/phone-011.png" alt="image">
           </div>
           <div class="swiper-slide screenshot-slide">
-            <img src="assets/images/phone-022.png" alt="image">
+            <img style="width:80%;height:80%;"src="assets/images/phone-022.png" alt="image">
           </div>
           <div class="swiper-slide screenshot-slide">
-            <img  src="assets/images/phone-033.png" alt="image">
+            <img style="width:80%;height:80%;" src="assets/images/phone-033.png" alt="image">
           </div>
           <div class="swiper-slide screenshot-slide">
-            <img src="assets/images/phone-044.png" alt="image">
+            <img style="width:80%;height:80%;"src="assets/images/phone-044.png" alt="image">
           </div>
           <div class="swiper-slide screenshot-slide">
-            <img src="assets/images/phone-055.png" alt="image">
+            <img style="width:80%;height:80%;" src="assets/images/phone-055.png" alt="image">
           </div>
         </div>
       </div>
