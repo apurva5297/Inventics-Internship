@@ -28,17 +28,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::with('featuredImage:path,imageable_id,imageable_type')->orderBy('order', 'asc')->get()->toArray();
-        $banners = Banner::with('featuredImage:path,imageable_id,imageable_type', 'images:path,imageable_id,imageable_type')
-        ->orderBy('order', 'asc')->get()->groupBy('group_id')->toArray();
+        // dd("Hello world");
+        // // $sliders = Slider::with('featuredImage:path,imageable_id,imageable_type')->orderBy('order', 'asc')->get()->toArray();
+        // // $banners = Banner::with('featuredImage:path,imageable_id,imageable_type', 'images:path,imageable_id,imageable_type')
+        // // ->orderBy('order', 'asc')->get()->groupBy('group_id')->toArray();
 
-        $trending = ListHelper::popular_items(config('system.popular.period.trending', 2), config('system.popular.take.trending', 15));
-        $weekly_popular = ListHelper::popular_items(config('system.popular.period.weekly', 7), config('system.popular.take.weekly', 5));
+        // // $trending = ListHelper::popular_items(config('system.popular.period.trending', 2), config('system.popular.take.trending', 15));
+        // // $weekly_popular = ListHelper::popular_items(config('system.popular.period.weekly', 7), config('system.popular.take.weekly', 5));
 
-        $recent = ListHelper::latest_available_items(10);
-        $additional_items = ListHelper::random_items(10);
+        // // $recent = ListHelper::latest_available_items(10);
+        // // $additional_items = ListHelper::random_items(10);
 
-        return view('index', compact('banners', 'sliders', 'trending', 'weekly_popular', 'recent', 'additional_items'));
+        // return view('index');
     }
 
     /**
@@ -49,28 +50,28 @@ class HomeController extends Controller
      */
     public function browseCategory(Request $request, $slug, $sortby = Null)
     {
-        $category = Category::where('slug', $slug)->with(['subGroup' => function($q){
-            $q->select(['id','slug','name','category_group_id'])->active();
-        }, 'subGroup.group' => function($q){
-            $q->select(['id','slug','name'])->active();
-        }])->active()->firstOrFail();
+        // $category = Category::where('slug', $slug)->with(['subGroup' => function($q){
+        //     $q->select(['id','slug','name','category_group_id'])->active();
+        // }, 'subGroup.group' => function($q){
+        //     $q->select(['id','slug','name'])->active();
+        // }])->active()->firstOrFail();
 
-        // Take only available items
-        $all_products = $category->listings()->available();
+        // // Take only available items
+        // $all_products = $category->listings()->available();
 
-        // Parameter for filter options
-        $brands = ListHelper::get_unique_brand_names_from_linstings($all_products);
-        $priceRange = ListHelper::get_price_ranges_from_linstings($all_products);
+        // // Parameter for filter options
+        // $brands = ListHelper::get_unique_brand_names_from_linstings($all_products);
+        // $priceRange = ListHelper::get_price_ranges_from_linstings($all_products);
 
-        // Filter results
-        $products = $all_products->filter($request->all())
-        ->withCount(['feedbacks', 'orders' => function($query){
-            $query->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
-        }])
-        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
-        ->paginate(config('system.view_listing_per_page', 16))->appends($request->except('page'));
+        // // Filter results
+        // $products = $all_products->filter($request->all())
+        // ->withCount(['feedbacks', 'orders' => function($query){
+        //     $query->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
+        // }])
+        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
+        // ->paginate(config('system.view_listing_per_page', 16))->appends($request->except('page'));
 
-        return view('category', compact('category', 'products', 'brands', 'priceRange'));
+        // return view('category', compact('category', 'products', 'brands', 'priceRange'));
     }
 
     /**
@@ -107,23 +108,23 @@ class HomeController extends Controller
      */
     public function browseCategoryGroup(Request $request, $slug, $sortby = Null)
     {
-        $categoryGroup = CategoryGroup::where('slug', $slug)->with(['categories' => function($q){
-            $q->select(['categories.id','categories.slug','categories.category_sub_group_id','categories.name'])
-            ->where('categories.active', 1)->whereHas('listings')->withCount('listings');
-        }])->active()->firstOrFail();
+        // $categoryGroup = CategoryGroup::where('slug', $slug)->with(['categories' => function($q){
+        //     $q->select(['categories.id','categories.slug','categories.category_sub_group_id','categories.name'])
+        //     ->where('categories.active', 1)->whereHas('listings')->withCount('listings');
+        // }])->active()->firstOrFail();
 
-        $categories = $categoryGroup->categories;
+        // $categories = $categoryGroup->categories;
 
-        $all_products = prepareFilteredListings($request, $categoryGroup);
+        // $all_products = prepareFilteredListings($request, $categoryGroup);
 
-        // Get brands ans price ranges
-        $brands = ListHelper::get_unique_brand_names_from_linstings($all_products);
-        $priceRange = ListHelper::get_price_ranges_from_linstings($all_products);
+        // // Get brands ans price ranges
+        // $brands = ListHelper::get_unique_brand_names_from_linstings($all_products);
+        // $priceRange = ListHelper::get_price_ranges_from_linstings($all_products);
 
-        // Paginate the results
-        $products = $all_products->paginate(config('system.view_listing_per_page', 16))->appends($request->except('page'));
+        // // Paginate the results
+        // $products = $all_products->paginate(config('system.view_listing_per_page', 16))->appends($request->except('page'));
 
-        return view('category_group', compact('categoryGroup', 'categories', 'products', 'brands', 'priceRange'));
+        // return view('category_group', compact('categoryGroup', 'categories', 'products', 'brands', 'priceRange'));
     }
 
     /**
@@ -134,117 +135,117 @@ class HomeController extends Controller
      */
     public function product($slug)
     {
-        $item = Inventory::where('slug', $slug)->withCount('feedbacks')->firstOrFail();
-        $shop = $item->shop;
-        $item->load(['product' => function($q){
-                $q->select('id', 'slug', 'description', 'manufacturer_id')
-                ->withCount(['inventories' => function($query){
-                    $query->available();
-                }]);
-            }, 'attributeValues' => function($q){
-                $q->select('id', 'attribute_values.attribute_id', 'value', 'color', 'order')->with('attribute:id,name,attribute_type_id,order');
-            },
-            'feedbacks.customer:id,nice_name,name',
-            'images:path,imageable_id,imageable_type',
-        ]);
+        // $item = Inventory::where('slug', $slug)->withCount('feedbacks')->firstOrFail();
+        // $shop = $item->shop;
+        // $item->load(['product' => function($q){
+        //         $q->select('id', 'slug', 'description', 'manufacturer_id')
+        //         ->withCount(['inventories' => function($query){
+        //             $query->available();
+        //         }]);
+        //     }, 'attributeValues' => function($q){
+        //         $q->select('id', 'attribute_values.attribute_id', 'value', 'color', 'order')->with('attribute:id,name,attribute_type_id,order');
+        //     },
+        //     'feedbacks.customer:id,nice_name,name',
+        //     'images:path,imageable_id,imageable_type',
+        // ]);
 
-            $result=DB::table('product_visit_count')->where(['inventories_id'=>$item->id,'shop_id'=>$item->shop_id])->whereDate('created_at', \Carbon\Carbon::today())->get();
+        //     $result=DB::table('product_visit_count')->where(['inventories_id'=>$item->id,'shop_id'=>$item->shop_id])->whereDate('created_at', \Carbon\Carbon::today())->get();
           
-            if (count($result) > 0) {
-                DB::table('product_visit_count')->where('visit_id', $result[0]->visit_id)->increment('hits', 1,['updated_at' => Carbon::now()]);
-            }else{
+        //     if (count($result) > 0) {
+        //         DB::table('product_visit_count')->where('visit_id', $result[0]->visit_id)->increment('hits', 1,['updated_at' => Carbon::now()]);
+        //     }else{
 
-               $data=array(
-                'inventories_id'=>$item->id,
-                'shop_id'       =>$item->shop_id,
-                'hits'          =>1,
-                "created_at" => Carbon::now()->toDateTimeString(),
-                "updated_at" => Carbon::now()->toDateTimeString()
-                 );
-              DB::table('product_visit_count')->insert($data); 
-            }
+        //        $data=array(
+        //         'inventories_id'=>$item->id,
+        //         'shop_id'       =>$item->shop_id,
+        //         'hits'          =>1,
+        //         "created_at" => Carbon::now()->toDateTimeString(),
+        //         "updated_at" => Carbon::now()->toDateTimeString()
+        //          );
+        //       DB::table('product_visit_count')->insert($data); 
+        //     }
             
 
-        $this->update_recently_viewed_items($item); //update_recently_viewed_items
+        // $this->update_recently_viewed_items($item); //update_recently_viewed_items
 
-        $variants = ListHelper::variants_of_product($item, $item->shop_id);
+        // $variants = ListHelper::variants_of_product($item, $item->shop_id);
 
-        $attr_pivots = \DB::table('attribute_inventory')->select('attribute_id','inventory_id','attribute_value_id')
-        ->whereIn('inventory_id', $variants->pluck('id'))->get();
+        // $attr_pivots = \DB::table('attribute_inventory')->select('attribute_id','inventory_id','attribute_value_id')
+        // ->whereIn('inventory_id', $variants->pluck('id'))->get();
 
-        $item_attrs = $attr_pivots->where('inventory_id', $item->id)->pluck('attribute_value_id')->toArray();
+        // $item_attrs = $attr_pivots->where('inventory_id', $item->id)->pluck('attribute_value_id')->toArray();
 
-        $attributes = \App\Attribute::select('id','name','attribute_type_id','order')
-        ->whereIn('id', $attr_pivots->pluck('attribute_id'))
-        ->with(['attributeValues' => function($query) use ($attr_pivots) {
-            $query->whereIn('id', $attr_pivots->pluck('attribute_value_id'))->orderBy('order');
-        }])->orderBy('order')->get();
+        // $attributes = \App\Attribute::select('id','name','attribute_type_id','order')
+        // ->whereIn('id', $attr_pivots->pluck('attribute_id'))
+        // ->with(['attributeValues' => function($query) use ($attr_pivots) {
+        //     $query->whereIn('id', $attr_pivots->pluck('attribute_value_id'))->orderBy('order');
+        // }])->orderBy('order')->get();
 
-        $variants = $variants->toJson(JSON_HEX_QUOT);
+        // $variants = $variants->toJson(JSON_HEX_QUOT);
 
-        // TEST
-        $related = ListHelper::related_products($item);
-        $linked_items = ListHelper::linked_items($item);
+        // // TEST
+        // $related = ListHelper::related_products($item);
+        // $linked_items = ListHelper::linked_items($item);
 
-        if( ! $linked_items->count() )
-            $linked_items = $related->random($related->count() >= 3 ? 3 : $related->count());
+        // if( ! $linked_items->count() )
+        //     $linked_items = $related->random($related->count() >= 3 ? 3 : $related->count());
 
-        $geoip = geoip(request()->ip()); // Set the location of the user
-        $countries = ListHelper::countries(); // Country list for shop_to dropdown
+        // $geoip = geoip(request()->ip()); // Set the location of the user
+        // $countries = ListHelper::countries(); // Country list for shop_to dropdown
 
-        return view('product', compact('item', 'variants', 'attributes', 'item_attrs', 'related', 'linked_items', 'geoip', 'countries','shop'));
+        // return view('product', compact('item', 'variants', 'attributes', 'item_attrs', 'related', 'linked_items', 'geoip', 'countries','shop'));
     }
 
     public function simple_product($slug)
     {
-        $item = Inventory::where('slug', $slug)->available()->withCount('feedbacks')->firstOrFail();
+        // $item = Inventory::where('slug', $slug)->available()->withCount('feedbacks')->firstOrFail();
 
-        $item->load(['product' => function($q){
-                $q->select('id', 'slug', 'description', 'manufacturer_id')
-                ->withCount(['inventories' => function($query){
-                    $query->available();
-                }]);
-            }, 'attributeValues' => function($q){
-                $q->select('id', 'attribute_values.attribute_id', 'value', 'color', 'order')->with('attribute:id,name,attribute_type_id,order');
-            },
-            'feedbacks.customer:id,nice_name,name',
-            'images:path,imageable_id,imageable_type',
-        ]);
+        // $item->load(['product' => function($q){
+        //         $q->select('id', 'slug', 'description', 'manufacturer_id')
+        //         ->withCount(['inventories' => function($query){
+        //             $query->available();
+        //         }]);
+        //     }, 'attributeValues' => function($q){
+        //         $q->select('id', 'attribute_values.attribute_id', 'value', 'color', 'order')->with('attribute:id,name,attribute_type_id,order');
+        //     },
+        //     'feedbacks.customer:id,nice_name,name',
+        //     'images:path,imageable_id,imageable_type',
+        // ]);
 
-        $this->update_recently_viewed_items($item); //update_recently_viewed_items
+        // $this->update_recently_viewed_items($item); //update_recently_viewed_items
 
-        $variants = ListHelper::variants_of_product($item, $item->shop_id);
+        // $variants = ListHelper::variants_of_product($item, $item->shop_id);
 
-        $attr_pivots = \DB::table('attribute_inventory')->select('attribute_id','inventory_id','attribute_value_id')
-        ->whereIn('inventory_id', $variants->pluck('id'))->get();
+        // $attr_pivots = \DB::table('attribute_inventory')->select('attribute_id','inventory_id','attribute_value_id')
+        // ->whereIn('inventory_id', $variants->pluck('id'))->get();
 
-        $item_attrs = $attr_pivots->where('inventory_id', $item->id)->pluck('attribute_value_id')->toArray();
+        // $item_attrs = $attr_pivots->where('inventory_id', $item->id)->pluck('attribute_value_id')->toArray();
 
-        $attributes = \App\Attribute::select('id','name','attribute_type_id','order')
-        ->whereIn('id', $attr_pivots->pluck('attribute_id'))
-        ->with(['attributeValues' => function($query) use ($attr_pivots) {
-            $query->whereIn('id', $attr_pivots->pluck('attribute_value_id'))->orderBy('order');
-        }])->orderBy('order')->get();
+        // $attributes = \App\Attribute::select('id','name','attribute_type_id','order')
+        // ->whereIn('id', $attr_pivots->pluck('attribute_id'))
+        // ->with(['attributeValues' => function($query) use ($attr_pivots) {
+        //     $query->whereIn('id', $attr_pivots->pluck('attribute_value_id'))->orderBy('order');
+        // }])->orderBy('order')->get();
 
-        $variants = $variants->toJson(JSON_HEX_QUOT);
+        // $variants = $variants->toJson(JSON_HEX_QUOT);
 
-        // TEST
-        $related = ListHelper::related_products($item);
-        $linked_items = ListHelper::linked_items($item);
+        // // TEST
+        // $related = ListHelper::related_products($item);
+        // $linked_items = ListHelper::linked_items($item);
 
-        if( ! $linked_items->count() )
-            $linked_items = $related->random($related->count() >= 3 ? 3 : $related->count());
+        // if( ! $linked_items->count() )
+        //     $linked_items = $related->random($related->count() >= 3 ? 3 : $related->count());
 
-        $geoip = geoip(request()->ip()); // Set the location of the user
-        $countries = ListHelper::countries(); // Country list for shop_to dropdown
-        $set=$item->set_size;
-        $pp=floor($item->sale_price);
-        $total=@($pp/$set);
-        $item['sale_price']=$total;
-        $item['set_size']=1;
-        $item['set_desc']='One Piece';
+        // $geoip = geoip(request()->ip()); // Set the location of the user
+        // $countries = ListHelper::countries(); // Country list for shop_to dropdown
+        // $set=$item->set_size;
+        // $pp=floor($item->sale_price);
+        // $total=@($pp/$set);
+        // $item['sale_price']=$total;
+        // $item['set_size']=1;
+        // $item['set_desc']='One Piece';
 
-        return view('product', compact('item', 'variants', 'attributes', 'item_attrs', 'related', 'linked_items', 'geoip', 'countries'));
+        // return view('product', compact('item', 'variants', 'attributes', 'item_attrs', 'related', 'linked_items', 'geoip', 'countries'));
     }
 
     /**
@@ -255,24 +256,24 @@ class HomeController extends Controller
      */
     public function quickViewItem($slug)
     {
-        $item = Inventory::where('slug', $slug)->available()
-        ->with([
-            'images:path,imageable_id,imageable_type',
-            'product' => function($q){
-                $q->select('id', 'slug')
-                ->withCount(['inventories' => function($query){
-                    $query->available();
-                }]);
-            },
-            'attributeValues' => function($q){
-                $q->select('id', 'attribute_values.attribute_id', 'value', 'color', 'order')->with('attribute:id,name,attribute_type_id');
-            },
-        ])
-        ->withCount('feedbacks')->firstOrFail();
+        // $item = Inventory::where('slug', $slug)->available()
+        // ->with([
+        //     'images:path,imageable_id,imageable_type',
+        //     'product' => function($q){
+        //         $q->select('id', 'slug')
+        //         ->withCount(['inventories' => function($query){
+        //             $query->available();
+        //         }]);
+        //     },
+        //     'attributeValues' => function($q){
+        //         $q->select('id', 'attribute_values.attribute_id', 'value', 'color', 'order')->with('attribute:id,name,attribute_type_id');
+        //     },
+        // ])
+        // ->withCount('feedbacks')->firstOrFail();
 
-        $this->update_recently_viewed_items($item); //update_recently_viewed_items
+        // $this->update_recently_viewed_items($item); //update_recently_viewed_items
 
-        return view('modals.quickview', compact('item'))->render();
+        // return view('modals.quickview', compact('item'))->render();
     }
 
     /**
@@ -283,15 +284,15 @@ class HomeController extends Controller
      */
     public function offers($slug)
     {
-        $product = Product::where('slug', $slug)->with(['inventories' => function($q){
-                $q->available();
-            }, 'inventories.attributeValues.attribute',
-            'inventories.feedbacks:rating,feedbackable_id,feedbackable_type',
-            'inventories.shop.feedbacks:rating,feedbackable_id,feedbackable_type',
-            'inventories.shop.image:path,imageable_id,imageable_type',
-        ])->firstOrFail();
+        // $product = Product::where('slug', $slug)->with(['inventories' => function($q){
+        //         $q->available();
+        //     }, 'inventories.attributeValues.attribute',
+        //     'inventories.feedbacks:rating,feedbackable_id,feedbackable_type',
+        //     'inventories.shop.feedbacks:rating,feedbackable_id,feedbackable_type',
+        //     'inventories.shop.image:path,imageable_id,imageable_type',
+        // ])->firstOrFail();
 
-        return view('offers', compact('product'));
+        // return view('offers', compact('product'));
     }
 
     /**
@@ -304,51 +305,57 @@ class HomeController extends Controller
     {
 
 
-        // $shop = Shop::select('id','name','slug','description')->active()->where('slug', $slug)->firstOrFail();
+        $shop = Shop::select('id','name','slug','description')->where('slug', $slug)->firstOrFail();
+      
         $shop = Shop::where('slug', $slug)
+      
         ->with(['feedbacks' => function($q){
             $q->with('customer:id,nice_name,name')->latest()->take(10);
         }])
         ->withCount(['inventories'])->firstOrFail();
-        Session::put('shop',$shop);
-        
-        $shop->increment('store_visit_count');
-        // Check shop maintenance_mode
-        if(getShopConfig($shop->id, 'maintenance_mode'))
-            return response()->view('errors.503', [], 503);
+     
+    
+        // Session::put('shop',$shop);
+    
+        // $shop->increment('store_visit_count');
+        // // Check shop maintenance_mode
+        // if(getShopConfig($shop->id, 'maintenance_mode'))
+        //     return response()->view('errors.503', [], 503);
 
-        $products = Inventory::where('shop_id', $shop->id)->filter(request()->all())
-        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
-        ->withCount(['orders' => function($q){
-            $q->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
-        }])
-        ->paginate(20);
+        // $products = Inventory::where('shop_id', $shop->id)->filter(request()->all())
+        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
+        // ->withCount(['orders' => function($q){
+        //     $q->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
+        // }])
+        // ->paginate(20);
 
-        $trending = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
-        ->withCount(['orders' => function($q){
-            $q->withArchived();
-        }])->orderBy('orders_count', 'desc')
-        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
-        ->limit(10)->get();
+        // $trending = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
+        // ->withCount(['orders' => function($q){
+        //     $q->withArchived();
+        // }])->orderBy('orders_count', 'desc')
+        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
+        // ->limit(10)->get();
 
-        $banners = Banner::with('featuredImage:path,imageable_id,imageable_type', 'images:path,imageable_id,imageable_type')
-        ->orderBy('order', 'asc')->get()->groupBy('group_id')->toArray();
+         $banners = Banner::with('featuredImage:path,imageable_id,imageable_type', 'images:path,imageable_id,imageable_type')
+         ->orderBy('order', 'asc')->get()->groupBy('group_id')->toArray();
+     
 
-        $recent = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','set_size','set_desc','stock_quantity')
-        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
-        ->latest()->limit(10)->get();
+        // $recent = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','set_size','set_desc','stock_quantity')
+        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
+        // ->latest()->limit(10)->get();
 
-        $additional_items = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','set_size','set_desc','stock_quantity')
-        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
-        ->inRandomOrder()->limit(10)->get();
+        // $additional_items = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','set_size','set_desc','stock_quantity')
+        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
+        // ->inRandomOrder()->limit(10)->get();
 
-        $weekly_popular = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
-            ->withCount(['orders' => function($q){
-            $q->withArchived();
-        }])->orderBy('orders_count', 'desc')
-        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
-        ->limit(5)->get();
-        return view('shop', compact('shop', 'products','trending','recent','additional_items','weekly_popular','banners'));
+        // $weekly_popular = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
+        //     ->withCount(['orders' => function($q){
+        //     $q->withArchived();
+        // }])->orderBy('orders_count', 'desc')
+        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
+        // ->limit(5)->get();
+        return view('shop',compact('shop','banners'));
+       
     }
 
     /**
@@ -359,21 +366,21 @@ class HomeController extends Controller
      */
     public function brand($slug)
     {
-        $brand = Manufacturer::where('slug', $slug)->firstOrFail();
+        // $brand = Manufacturer::where('slug', $slug)->firstOrFail();
 
-        $ids = Product::where('manufacturer_id', $brand->id)->pluck('id');
+        // $ids = Product::where('manufacturer_id', $brand->id)->pluck('id');
 
-        $products = Inventory::whereIn('product_id', $ids)->filter(request()->all())
-        ->whereHas('shop', function($q) {
-            $q->select(['id', 'current_billing_plan', 'active'])->active();
-        })
-        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
-        ->withCount(['orders' => function($q){
-            $q->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
-        }])
-        ->active()->paginate(20);
+        // $products = Inventory::whereIn('product_id', $ids)->filter(request()->all())
+        // ->whereHas('shop', function($q) {
+        //     $q->select(['id', 'current_billing_plan', 'active'])->active();
+        // })
+        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
+        // ->withCount(['orders' => function($q){
+        //     $q->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
+        // }])
+        // ->active()->paginate(20);
 
-        return view('brand', compact('brand', 'products'));
+        // return view('brand', compact('brand', 'products'));
     }
 
     /**
@@ -382,7 +389,7 @@ class HomeController extends Controller
      */
     public function categories()
     {
-        return view('categories');
+        // return view('categories');
     }
 
     /**
@@ -393,9 +400,9 @@ class HomeController extends Controller
      */
     public function openPage($slug)
     {
-        $page = Page::where('slug', $slug)->firstOrFail();
+        // $page = Page::where('slug', $slug)->firstOrFail();
 
-        return view('page', compact('page'));
+        // return view('page', compact('page'));
     }
 
     /**
@@ -407,9 +414,9 @@ class HomeController extends Controller
      */
     public function changeLanguage($locale = 'en')
     {
-        Session::put('locale', $locale);
+        // Session::put('locale', $locale);
 
-        return redirect()->back();
+        // return redirect()->back();
     }
 
     /**
@@ -419,11 +426,11 @@ class HomeController extends Controller
      */
     private function update_recently_viewed_items($item)
     {
-        $items = Session::get('products.recently_viewed_items', []);
+        // $items = Session::get('products.recently_viewed_items', []);
 
-        if( ! in_array($item->getKey(), $items) )
-            Session::push('products.recently_viewed_items', $item->getKey());
+        // if( ! in_array($item->getKey(), $items) )
+        //     Session::push('products.recently_viewed_items', $item->getKey());
 
-        return;
+        // return;
     }
 }

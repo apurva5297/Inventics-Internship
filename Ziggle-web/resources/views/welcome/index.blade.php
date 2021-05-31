@@ -14,12 +14,12 @@
                 <h1 class="main-heading color-black">Earn from home with Zero Investment</h1>
                 <p class="paragraph">Kiddotrack helps schools and parents to track the school bus and receive important notifications on their mobile phone. It is an innovative school bus tracker without installing GPS devices! A cost effective solution that has ready Web and Mobile Apps for your school and parents.</p>
                 <div class="download-buttons">
-                <a href="#" class="google-play">
-                  <i class="fab fa-google-play"></i>
-                  <div class="button-content">
-                    <h5>Google Play <span><h5> Download and Earn on Ziggle</h5></span></h5>
-                  </div>
-                </a>
+                  <a href=" https://play.google.com/store/apps/details?id=com.inventics.ziggle" class="google-play">
+                    <i class="fab fa-google-play"></i>
+                    <div class="button-content">
+                      <h6>Google Play <span>Reseller App</span></h6>
+                    </div>
+                  </a>
                 {{-- <a href="#" class="apple-store">
                   <i class="fab fa-google-play"></i>
                   <div class="button-content">
@@ -463,6 +463,18 @@
           </div>
           <div class="swiper-slide screenshot-slide">
             <img style="width:80%;height:80%;" src="assets/images/phone-055.png" alt="image">
+          </div>
+          <div class="swiper-slide screenshot-slide">
+            <img style="width:80%;height:80%;" src="assets/images/phone-066.png" alt="image">
+          </div>
+          <div class="swiper-slide screenshot-slide">
+            <img style="width:80%;height:80%;" src="assets/images/phone-077.png" alt="image">
+          </div>
+          <div class="swiper-slide screenshot-slide">
+            <img style="width:80%;height:80%;" src="assets/images/phone-088.png" alt="image">
+          </div>
+          <div class="swiper-slide screenshot-slide">
+            <img style="width:80%;height:80%;" src="assets/images/phone-099.png" alt="image">
           </div>
         </div>
       </div>

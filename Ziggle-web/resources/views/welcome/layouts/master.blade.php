@@ -71,7 +71,7 @@
                 <img src="assets/images/loading-img-kiddo.png" alt="image" style="width: 50%">
               </div>
               <div class="footer__info--content">
-                <p class="paragraph dark">Email : support@kiddotrack.com <br>Phone : +91 99492 84854</p>
+                <p class="paragraph dark">Email :  support@ziggle.in <br>Phone : +91 9900510100 </p>
                 <div class="social">
                   <ul>
                     <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -103,10 +103,10 @@
                 </ul>
               </div>
               <div class="download-buttons">
-                <a href="#" class="google-play">
+                <a href=" https://play.google.com/store/apps/details?id=com.inventics.ziggle" class="google-play">
                   <i class="fab fa-google-play"></i>
                   <div class="button-content">
-                    <h6>Google Play <span><h6>Get it on Google play</h6></span></h6>
+                    <h6>Google Play <span>Reseller App</span></h6>
                   </div>
                 </a>
                 {{-- <a href="#" class="apple-store">
@@ -127,7 +127,7 @@
         </div>
         <div class="row">
           <div class="footer__copy">
-            <h6>&copy; Kiddotrack</h6>
+            <h6>&copy; ZIGGLE</h6>
           </div>
         </div>
       </div>

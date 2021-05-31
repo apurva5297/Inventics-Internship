@@ -1,21 +1,14 @@
 @extends('layouts.main')
-
 @section('content')
-    <!-- SHOP COVER IMAGE -->
-    @include('banners.shop_cover', ['shop' => $shop])
+<div class="page-content">
+    @include('shop.slider', ['shop' => $shop]) 
+    {{-- @include('shop.collection_grid')
+    @include('shop.brand_grid')    --}}
+    @include('shop.collection')
+    @include('shop.new_arrival')
+    {{-- @include('shop.blog')   --}}
+    @include('shop.newsletter')  
+  
+</div>
     
-            @include('sliders.carousel_with_feedback', ['products' => $trending])
-
-
-    <!-- PRODUCTS -->
-    @include('contents.shop_products')
-
-    <!-- CONTENT SECTION -->
-    {{--@include('contents.shop_page')--}}
-
-    <!-- BROWSING ITEMS -->
-    @include('sliders.browsing_items')
-
-    <!-- MODALS -->
-    @include('modals.shopReviews')
 @endsection

@@ -1,4 +1,14 @@
 <?php
+Route::get('/view-clear', function() {
+    $exitCode = Artisan::call('view:clear');
+    return '<h1>View cache cleared</h1>';
+});
+//Clear Route cache:
+Route::get('/route-clear', function() {
+    $exitCode = Artisan::call('route:clear');
+    return '<h1>Route cache cleared</h1>';
+});
+
 // Common
 include('Common.php');
 
