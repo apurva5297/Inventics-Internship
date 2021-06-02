@@ -15,6 +15,7 @@ use App\Inventory;
 use App\Manufacturer;
 use App\CategoryGroup;
 use App\CategorySubGroup;
+use App\ShopCategory;
 use App\Helpers\ListHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -313,7 +314,11 @@ class HomeController extends Controller
             $q->with('customer:id,nice_name,name')->latest()->take(10);
         }])
         ->withCount(['inventories'])->firstOrFail();
-     
+
+        $shop_category= ShopCategory::where('shop_id',$shop->id)->first();
+        $cat_subGroupId=$shop_category->category_sub_group_id;
+        $cat_subGroupId=json_decode($cat_subGroupId);
+
     
         // Session::put('shop',$shop);
     
@@ -322,12 +327,13 @@ class HomeController extends Controller
         // if(getShopConfig($shop->id, 'maintenance_mode'))
         //     return response()->view('errors.503', [], 503);
 
-        // $products = Inventory::where('shop_id', $shop->id)->filter(request()->all())
-        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
-        // ->withCount(['orders' => function($q){
-        //     $q->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
-        // }])
-        // ->paginate(20);
+        $products = Inventory::where('shop_id', $shop->id)->filter(request()->all())
+        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
+        ->withCount(['orders' => function($q){
+            $q->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
+        }])
+        ->paginate(8);
+        
 
         // $trending = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
         // ->withCount(['orders' => function($q){
@@ -354,7 +360,7 @@ class HomeController extends Controller
         // }])->orderBy('orders_count', 'desc')
         // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
         // ->limit(5)->get();
-        return view('shop',compact('shop','banners'));
+        return view('shop',compact('shop','banners','cat_subGroupId','products'));
        
     }
 

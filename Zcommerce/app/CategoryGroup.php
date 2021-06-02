@@ -43,6 +43,12 @@ class CategoryGroup extends Model
     {
         return $this->hasMany(CategorySubGroup::class, 'category_group_id');
     }
+    public function shop_id()
+    {
+        return $this->hasMany(ShopCategory::class, 'shop_id');
+    }
+    
+    
 
     /**
      * Get the categories associated with the CategoryGroup.

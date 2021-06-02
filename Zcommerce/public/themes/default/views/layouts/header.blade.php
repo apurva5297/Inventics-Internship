@@ -177,44 +177,56 @@
             <div class="hdr-nav hide-mobile nav-holder justify-content-center px-4">
               <!--mmenu-->
               <ul class="mmenu mmenu-js">
-                <li class="mmenu-item--simple"><a href="#" class="active">Category</a>
+              
+                @foreach($all_categories as $catGroup)
+               
+                @foreach($catGroup->subGroups as $subGroup)
+                @foreach($cat_subGroupId as $subcatGroup)
+                @if($subGroup->id == $subcatGroup)
+                @if($catGroup->subGroups->count())
+                <li class="mmenu-item--simple"><a class="active"  href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
+                  <i class="fal fa {{ $catGroup->icon or 'fa-cube' }}"></i>
+                  <span>{{ $subGroup->name }}</span>
+                  </a>
                   <div class="mmenu-submenu d-flex">
                     <ul class="submenu-list mt-0" class="menu-cat" data-menu-toggle>
-                      @php 
-                      echo ($shop);
-                      @endphp
-                      @foreach($all_categories as $catGroup)
-                      @foreach($catGroup->subGroups as $subGroup)
-                      @if($catGroup->subGroups->count())
-                      <li>
-                      <a href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
-                        <i class="fal fa {{ $catGroup->icon or 'fa-cube' }}"></i>
-                        <span>{{ $catGroup->name }}</span>
-                        <i class="fal fa-chevron-right"></i>
-                      {{-- <li> <a href="{{ route('categories.browse', $subGroup->slug) }}">{{ $subGroup->name }}</a> --}}
-                       <ul class="submenu-list mt-0">
-
-                        <div class="row">
-                                        @foreach($subGroup->categories as $cat)
+                      @foreach($subGroup->categories as $cat)
                                         <li><a
                                                 href="{{ route('category.browse', $cat->slug) }}">{{ $cat->name }}</a>
                                           
                                         </li>
                                         @endforeach
+                      {{-- <li>
+                        {{-- <a href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
+                          <i class="fal fa {{ $catGroup->icon or 'fa-cube' }}"></i>
+                          <span>{{ $catGroup->name }}</span>
+                          <i class="fal fa-chevron-right"></i>
+                      </a> --}}
+{{--   
+                      <li> <a href="{{ route('categories.browse', $subGroup->slug) }}">{{ $subGroup->name }}</a>
+                       <ul class="submenu-list mt-0">
+
+                        <div class="row">
+                                       
                             @if($loop->iteration % 2 == 0)
                               <div class="clearfix"></div>
                             @endif
                         
                             
-                        </div>
-                    </ul>
-                  </li>
-                  @endif
-                  @endforeach
-                  @endforeach
+                        </div>  --}}
+                    
+                
+              
+               
                   </ul>
                   </div>
+              
                 </li>
+                @endif
+                @endif
+                @endforeach
+                @endforeach
+                @endforeach
                 <li class="mmenu-item--simple"><a href="#">Pages</a>
                   <div class="mmenu-submenu">
                     <ul class="submenu-list">
@@ -278,7 +290,7 @@
                   </div>
                 </li>
                 {{-- <li><a href="category.html">Accessories<span class="menu-label">SALE</span></a></li> --}}
-                <li class="mmenu-item--mega"><a href="category.html">Men</a>
+                {{-- <li class="mmenu-item--mega"><a href="category.html">Men</a>
                   <div class="mmenu-submenu mmenu-submenu--has-bottom">
                     <div class="mmenu-submenu-inside">
                       <div class="container">
@@ -353,7 +365,7 @@
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> --}}
                 {{-- <li class="mmenu-item--mega"><a href="category.html">Women</a>
                   <div class="mmenu-submenu mmenu-submenu--has-bottom">
                     <div class="mmenu-submenu-inside">

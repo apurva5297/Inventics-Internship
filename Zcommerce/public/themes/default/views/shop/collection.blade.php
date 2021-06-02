@@ -16,9 +16,9 @@
           </div>
         </div>
       </div>
-      <div class="prd-grid-wrap">
+      {{-- <div class="prd-grid-wrap">
         <div class="prd-grid data-to-show-4 data-to-show-md-3 data-to-show-sm-2 data-to-show-xs-2" data-grid-tab-content></div>
-        <div class="loader-horizontal-sm js-loader-horizontal-sm d-none" data-loader-horizontal style="opacity: 0;"><span></span></div>
+        <div class="loader-horizontal-sm js-loader-horizontal-sm d-none" data-loader-horizontal style="opacity: 0;"></div>
         <!--<div class="circle-loader-wrap d-none">-->
         <!--<div class="circle-loader">-->
         <!--<a href="" data-load="4" class="js-circle-loader">-->
@@ -35,12 +35,12 @@
         <!--</a>-->
         <!--</div>-->
         <!--</div>-->
-      </div>
+      </div> --}}
     </div>
   </div>
   <div class="holder holder-mt-medium ">
     <div class="container">
-      <a href="https://bit.ly/3eJX5XE" target="_blank" class="bnr-wrap bnr-">
+      <a target="_blank" class="bnr-wrap bnr-">
         <div class="bnr custom-caption image-hover-scale bnr--middle bnr--right bnr--fullwidth">
           <div class="bnr-img d-none d-sm-block image-container" style="padding-bottom: 41.36752136752137%">
             <img src="{{ theme_asset_url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/fashion/banner-fashion2-full.png')}}" class="lazyload fade-up" alt="">
