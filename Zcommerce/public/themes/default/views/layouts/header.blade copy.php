@@ -177,42 +177,69 @@
             <div class="hdr-nav hide-mobile nav-holder justify-content-center px-4">
               <!--mmenu-->
               <ul class="mmenu mmenu-js">
-                <li class="mmenu-item--simple"><a href="#" class="active">Category</a>
+                <li class="mmenu-item--simple"><a href="#" class="active">Home</a>
                   <div class="mmenu-submenu d-flex">
                     <ul class="submenu-list mt-0" class="menu-cat" data-menu-toggle>
-                      @php 
-                      echo ($shop);
-                      @endphp
                       @foreach($all_categories as $catGroup)
-                      @foreach($catGroup->subGroups as $subGroup)
                       @if($catGroup->subGroups->count())
-                      <li>
-                      <a href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
+                      <li> <a href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
                         <i class="fal fa {{ $catGroup->icon or 'fa-cube' }}"></i>
                         <span>{{ $catGroup->name }}</span>
                         <i class="fal fa-chevron-right"></i>
-                      {{-- <li> <a href="{{ route('categories.browse', $subGroup->slug) }}">{{ $subGroup->name }}</a> --}}
-                       <ul class="submenu-list mt-0">
+                    </a>
+
+                    <ul class="submenu-list mt-0">
 
                         <div class="row">
+                            @foreach($catGroup->subGroups as $subGroup)
+                            <div class="col-lg-6">
+
+                                <div class="mega-dropdown__item">
+                                    <h3><a
+                                            href="{{ route('categories.browse', $subGroup->slug) }}">{{ $subGroup->name }}</a></h3>
+                                    <ul>
                                         @foreach($subGroup->categories as $cat)
                                         <li><a
                                                 href="{{ route('category.browse', $cat->slug) }}">{{ $cat->name }}</a>
-                                          
+                                            @if($cat->description)
+                                              <p>{{ $cat->description }}</p>
+                                            @endif
                                         </li>
                                         @endforeach
+                                        
+                                    </ul>
+                                </div>
+                            </div>
                             @if($loop->iteration % 2 == 0)
                               <div class="clearfix"></div>
                             @endif
-                        
+                            @endforeach
                             
                         </div>
                     </ul>
                   </li>
                   @endif
                   @endforeach
-                  @endforeach
                   </ul>
+
+
+
+
+                    {{-- <ul class="submenu-list mt-0">
+                      <li><a href="#">Cups&Mugs Skin <span class="menu-label menu-label--color1">Coming Soon</span></a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen-cups.png')}}" alt=""></span></li>
+                      <li><a href="#">Bikes Skin <span class="menu-label menu-label--color2">Coming Soon</span></a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen-bikes.png')}}" alt=""></span></li>
+                      <li><a href="#">T-Shirts Skin <span class="menu-label">Coming Soon</span></a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen-tshirts.png')}}" alt=""></span></li>
+                      <li><a href="index-02.html">Home page 2</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen02.png')}}" alt=""></span></li>
+                      <li><a href="index-03.html">Home page 3</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen03.png')}}" alt=""></span></li>
+                      <li><a href="index-04.html">Home page 4</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen04.png')}}" alt=""></span></li>
+                      <li><a href="index-05.html">Home page 5</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen05.png')}}" alt=""></span></li>
+                      <li><a href="index-06.html">Home page 6</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen06.png')}}" alt=""></span></li>
+                      <li><a href="index-07.html">Home page 7</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen07.png')}}" alt=""></span></li>
+                      <li><a href="index-08.html">Home page 8</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen08.png')}}" alt=""></span></li>
+                      <li><a href="index-09.html">Home page 9</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen09.png')}}" alt=""></span></li>
+                      <li><a href="index-10.html">Home page 10</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen10.png')}}" alt=""></span></li>
+                      <li><a href="index-rtl.html">Home page RTL</a><span class="submenu-link-image"><img src="{{ theme_asset_url('images/screen/screen-rtl.png')}}" alt=""></span></li>
+                    </ul> --}}
                   </div>
                 </li>
                 <li class="mmenu-item--simple"><a href="#">Pages</a>
