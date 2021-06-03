@@ -50,8 +50,9 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function addToCart(Request $request, $slug)
+    public function addToCart(Request $request)
     {
+        $slug=$request->slug;
         $item = Inventory::where('slug', $slug)->first();
 
         $customer_id = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->id : Null;
@@ -104,7 +105,7 @@ class CartController extends Controller
             $cart->shipping_weight = $old_cart ? ($old_cart->shipping_weight + $item->shipping_weight) : $item->shipping_weight;
 
         $cart->save();
-
+return "sir nhi ho raha";
         // Makes item_description field
         $attributes = implode(' - ', $item->attributeValues->pluck('value')->toArray());
         // Prepare pivot data

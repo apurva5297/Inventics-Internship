@@ -1,4 +1,4 @@
-@extends('layouts.master_common')
+@extends('layouts.main')
 @section('content')
 <div class="page-content">
         <div class="holder breadcrumbs-wrap mt-0">
@@ -21,5 +21,5 @@
       </div>
     </div>
   </div>
-  
+  @include('scripts.cartjs')
 @endsection

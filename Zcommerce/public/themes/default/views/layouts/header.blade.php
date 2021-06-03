@@ -157,11 +157,15 @@
               <div class="menu-toggle"> <a href="#" class="mobilemenu-toggle"><i class="icon-menu"></i></a> </div>
               <!-- /Menu Toggle -->
             </div>
-            <div class="col-auto hdr-logo">
+            <div class="col-auto hdr-logo" style=" padding-top: 15px;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            height: 80px;">
               @if(isset($shop))
               <a href="{{ url('/shop',$shop->slug) }}">
                   <img src="{{ get_storage_file_url(optional($shop->logo)->path, 'full') }}" class="brand-logo" alt="Logo"
-                      title="Logo">
+                      title="Logo" style="height: 80px;
+                      width: auto;">
               </a>
               @elseif(Session::get('shop') != array(['','null']))
               <a href="{{ url('/shop',Session::get('shop')->slug) }}">
@@ -184,43 +188,22 @@
                 @foreach($cat_subGroupId as $subcatGroup)
                 @if($subGroup->id == $subcatGroup)
                 @if($catGroup->subGroups->count())
-                <li class="mmenu-item--simple"><a class="active"  href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
+                <li class="mmenu-item--simple">
+                  <a class="active"  href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
                   <i class="fal fa {{ $catGroup->icon or 'fa-cube' }}"></i>
                   <span>{{ $subGroup->name }}</span>
                   </a>
                   <div class="mmenu-submenu d-flex">
-                    <ul class="submenu-list mt-0" class="menu-cat" data-menu-toggle>
+                    <ul class="submenu-list mt-0" class="menu-cat" data-menu-toggle style="-webkit-column-count: 2;
+                    -moz-column-count: 2;
+                    column-count: 2;">
                       @foreach($subGroup->categories as $cat)
-                                        <li><a
-                                                href="{{ route('category.browse', $cat->slug) }}">{{ $cat->name }}</a>
-                                          
-                                        </li>
-                                        @endforeach
-                      {{-- <li>
-                        {{-- <a href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
-                          <i class="fal fa {{ $catGroup->icon or 'fa-cube' }}"></i>
-                          <span>{{ $catGroup->name }}</span>
-                          <i class="fal fa-chevron-right"></i>
-                      </a> --}}
-{{--   
-                      <li> <a href="{{ route('categories.browse', $subGroup->slug) }}">{{ $subGroup->name }}</a>
-                       <ul class="submenu-list mt-0">
-
-                        <div class="row">
-                                       
-                            @if($loop->iteration % 2 == 0)
-                              <div class="clearfix"></div>
-                            @endif
-                        
-                            
-                        </div>  --}}
-                    
-                
-              
-               
+                        <li>
+                        <a href="{{ route('category.browse', $cat->slug) }}">{{ $cat->name }}</a>                 
+                        </li>
+                      @endforeach
                   </ul>
                   </div>
-              
                 </li>
                 @endif
                 @endif
@@ -821,7 +804,7 @@
             <div class="minicart-drop-total-price col" data-header-cart-total="">$340</div>
           </div>
           <div class="minicart-drop-actions">
-            <a href="cart.html" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Cart Page</span></a>
+            <a href="{{ route('cart.index') }}" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Cart Page</span></a>
             <a href="checkout.html" class="btn btn--md"><i class="icon-checkout"></i><span>Check out</span></a>
           </div>
           <ul class="payment-link mb-2">

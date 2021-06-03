@@ -63,8 +63,12 @@
                   </div>
                   <div class="prd-action">
                     <div class="prd-action-left">
-                      <form action="#">
-                        <button class="btn js-prd-addtocart" data-product='{"name": "Oversized Cotton Blouse", "path":"images/skins/fashion/products/product-03-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                      {{-- <form action="{{ route('cart.index') }}"> --}}
+                        <button class="btn js-prd-addtocart" onclick="onaddtocartclick({{$item->slug}},1)">cart</button>
+                        <button class="btn js-prd-addtocart" onclick="onaddtocartclick({{$item->slug}},1)" data-product='{"name": "Oversized Cotton Blouse", "path":"images/skins/fashion/products/product-03-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
+                        @php
+                          echo $item;
+                        @endphp
                       </form>
                     </div>
                   </div>

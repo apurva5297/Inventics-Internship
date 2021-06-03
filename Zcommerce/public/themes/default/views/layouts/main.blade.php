@@ -24,7 +24,7 @@
 <body class="has-smround-btns has-loader-bg equal-height">
  
   <!--header-->
-  @include('layouts.header')
+  @include('layouts.header-3')
  
   <!-- main content -->
   @yield('content')
@@ -39,8 +39,8 @@
   <!-- payment note -->  
     @include('layouts.payment_note')
     
- 
-
+    @include('scripts.cartjs')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="{{ theme_asset_url('js/vendor-special/lazysizes.min.js')}}"></script>
   <script src="{{ theme_asset_url('js/vendor-special/ls.bgset.min.js')}}"></script>
   <script src="{{ theme_asset_url('js/vendor-special/ls.aspectratio.min.js')}}"></script>

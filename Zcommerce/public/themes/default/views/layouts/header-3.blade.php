@@ -8,7 +8,7 @@
             <!-- /Menu Toggle -->
           </div>
           <div class="col-auto hdr-logo">
-            @if(isset($shop))
+            {{-- @if(isset($shop))
             <a href="{{ url('/shop',$shop->slug) }}">
                 <img src="{{ get_storage_file_url(optional($shop->logo)->path, 'full') }}" class="brand-logo" alt="Logo"
                     title="Logo">
@@ -21,7 +21,7 @@
           <a href="{{ url('/') }}">
             <img src="{{ theme_asset_url('img/z commerce_logo.png')}}" class="brand-logo">
           </a>
-          @endif
+          @endif --}}
           </div>
           <!--navigation-->
           <div class="hdr-nav hide-mobile nav-holder-s">
@@ -158,7 +158,7 @@
               <!-- /Menu Toggle -->
             </div>
             <div class="col-auto hdr-logo">
-              @if(isset($shop))
+              {{-- @if(isset($shop))
               <a href="{{ url('/shop',$shop->slug) }}">
                   <img src="{{ get_storage_file_url(optional($shop->logo)->path, 'full') }}" class="brand-logo" alt="Logo"
                       title="Logo">
@@ -171,7 +171,7 @@
             <a href="{{ url('/') }}">
               <img src="{{ theme_asset_url('img/z commerce_logo.png')}}" class="brand-logo">
             </a>
-            @endif
+            @endif --}}
             </div>
             <!--navigation-->
             <div class="hdr-nav hide-mobile nav-holder justify-content-center px-4">
@@ -180,18 +180,18 @@
                 <li class="mmenu-item--simple"><a href="#" class="active">Home</a>
                   <div class="mmenu-submenu d-flex">
                     <ul class="submenu-list mt-0" class="menu-cat" data-menu-toggle>
-                      @foreach($all_categories as $catGroup)
+                      {{-- @foreach($all_categories as $catGroup)
                       @if($catGroup->subGroups->count())
                       <li> <a href="{{ route('categoryGrp.browse', $catGroup->slug) }}">
                         <i class="fal fa {{ $catGroup->icon or 'fa-cube' }}"></i>
                         <span>{{ $catGroup->name }}</span>
                         <i class="fal fa-chevron-right"></i>
-                    </a>
+                    </a> --}}
 
                     <ul class="submenu-list mt-0">
 
                         <div class="row">
-                            @foreach($catGroup->subGroups as $subGroup)
+                            {{-- @foreach($catGroup->subGroups as $subGroup)
                             <div class="col-lg-6">
 
                                 <div class="mega-dropdown__item">
@@ -220,7 +220,7 @@
                   </li>
                   @endif
                   @endforeach
-                  </ul>
+                  </ul> --}}
 
 
 
@@ -836,7 +836,7 @@
             <div class="minicart-drop-total-price col" data-header-cart-total="">$340</div>
           </div>
           <div class="minicart-drop-actions">
-            <a href="cart.html" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Cart Page</span></a>
+            <a href="{{ route('cart.index') }}" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Cart Page</span></a>
             <a href="checkout.html" class="btn btn--md"><i class="icon-checkout"></i><span>Check out</span></a>
           </div>
           <ul class="payment-link mb-2">
