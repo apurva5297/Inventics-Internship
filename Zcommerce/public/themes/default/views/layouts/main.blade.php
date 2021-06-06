@@ -7,7 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <title>SHOP</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
   <!-- Vendor CSS -->
   <link href="{{ theme_asset_url('css/vendor/bootstrap.min.css')}}" rel="stylesheet">
@@ -24,7 +27,7 @@
 <body class="has-smround-btns has-loader-bg equal-height">
  
   <!--header-->
-  @include('layouts.header-3')
+  @include('layouts.header')
  
   <!-- main content -->
   @yield('content')
@@ -38,9 +41,14 @@
 
   <!-- payment note -->  
     @include('layouts.payment_note')
-    
-    @include('scripts.cartjs')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    {{-- @include('notifications') --}}
+    {{-- @include('scripts.appjs') --}}
+    {{-- @include('scripts.cartjs') --}}
+    {{-- @include('scripts.cart')
+    @include('scripts.checkout') --}}
+      {{-- @include('scripts.product_page') --}}
+  
   <script src="{{ theme_asset_url('js/vendor-special/lazysizes.min.js')}}"></script>
   <script src="{{ theme_asset_url('js/vendor-special/ls.bgset.min.js')}}"></script>
   <script src="{{ theme_asset_url('js/vendor-special/ls.aspectratio.min.js')}}"></script>

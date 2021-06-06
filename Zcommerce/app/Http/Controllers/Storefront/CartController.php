@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Storefront;
 
 use Auth;
 use App\Shop;
+use App\ShopCategory;
 use App\Cart;
 use App\Order;
 use App\Coupon;
@@ -23,6 +24,7 @@ class CartController extends Controller
      */
     public function index(Request $request, $expressId = Null)
     {
+        
         $carts = Cart::whereNull('customer_id')->where('ip_address', $request->ip());
 
         if(Auth::guard('customer')->check())
@@ -41,7 +43,11 @@ class CartController extends Controller
 
         $platformDefaultPackaging = getPlatformDefaultPackaging(); // Get platform's default packaging
         $cart['simple_pro']=1;
-        return view('cart', compact('carts','countries','platformDefaultPackaging','expressId'));
+        $shop = $request->session()->get('shop', 'default');
+        $shop_category= ShopCategory::where('shop_id',$shop->id)->first();
+        $cat_subGroupId=$shop_category->category_sub_group_id;
+        $cat_subGroupId=json_decode($cat_subGroupId);
+        return view('cart', compact('carts','countries','platformDefaultPackaging','expressId','shop','cat_subGroupId'));
     }
 
     /**
@@ -50,9 +56,9 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function addToCart(Request $request)
+    public function addToCart(Request $request, $slug)
     {
-        $slug=$request->slug;
+        
         $item = Inventory::where('slug', $slug)->first();
 
         $customer_id = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->id : Null;
@@ -77,7 +83,7 @@ class CartController extends Controller
         $qtt = $request->quantity ?? $item->min_order_quantity;
         // $shipping_rate_id = $old_cart ? $old_cart->shipping_rate_id : $request->shippingRateId;
         $unit_price = $item->currnt_sale_price();
-
+        $countries = ListHelper::countries(); // Country list for shop_to dropdown
         // Instantiate new cart if old cart not found for the shop and customer
         $cart = $old_cart ?? new Cart;
         $cart->shop_id = $item->shop_id;
@@ -105,7 +111,7 @@ class CartController extends Controller
             $cart->shipping_weight = $old_cart ? ($old_cart->shipping_weight + $item->shipping_weight) : $item->shipping_weight;
 
         $cart->save();
-return "sir nhi ho raha";
+
         // Makes item_description field
         $attributes = implode(' - ', $item->attributeValues->pluck('value')->toArray());
         // Prepare pivot data
@@ -126,6 +132,7 @@ return "sir nhi ho raha";
 
     public function simple_addToCart(Request $request, $slug)
     {
+        
         $item = Inventory::where('slug', $slug)->first();
 
         $set=$item->set_size;

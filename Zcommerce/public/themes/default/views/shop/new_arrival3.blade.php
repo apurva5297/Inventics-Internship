@@ -1,3 +1,4 @@
+
 <div class="holder">
     <div class="container">
       <div class="title-wrap text-center">
@@ -8,12 +9,12 @@
         <div class="prd-grid data-to-show-4 data-to-show-lg-4 data-to-show-md-3 data-to-show-sm-2 data-to-show-xs-2 js-category-grid" data-grid-tab-content>
           @foreach($products as $item)
           @php
-          $shipping_country_id = get_id_of_model('countries', 'iso_3166_2', $geoip->iso_code);
-          $shipping_state_id = $geoip->state;
-        
-          $shipping_zone = get_shipping_zone_of($item->shop_id, $shipping_country_id, $shipping_state_id);
-          $shipping_options = isset($shipping_zone->id) ? getShippingRates($shipping_zone->id) : 'NaN';
-        @endphp
+	$shipping_country_id = get_id_of_model('countries', 'iso_3166_2', $geoip->iso_code);
+	$shipping_state_id = $geoip->state;
+
+	$shipping_zone = get_shipping_zone_of($item->shop_id, $shipping_country_id, $shipping_state_id);
+	$shipping_options = isset($shipping_zone->id) ? getShippingRates($shipping_zone->id) : 'NaN';
+@endphp
           <div class="prd prd--style2 prd-labels--max prd-labels-shadow sc-product-item">
             <div class="prd-inside">
               <div class="prd-img-area">
@@ -31,7 +32,7 @@
                 </a>
                 <div class="prd-circle-labels">
                   <a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a>
-                  {{-- <a href="#" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a> --}}
+                  <a href="#" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a>
                 </div>
                 {{-- <ul class="list-options color-swatch">
                   <li data-image="images/skins/fashion/products/product-03-1.jpg" class="active"><a href="#" class="js-color-toggle" data-toggle="tooltip" data-placement="right" title="Color Name"><img src="{{ get_storage_file_url(optional($item->image)->path, 'small') }}" data-src="images/skins/fashion/products/product-03-1.jpg" class="lazyload fade-up" alt="Color Name"></a></li>
@@ -52,15 +53,17 @@
                   </div>
                   <div class="prd-action">
                     <form action="#">
-                      {{-- <button class="btn js-prd-addtocart" data-product='{"name": "Oversized Cotton Blouse", "path":"images/skins/fashion/products/product-03-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button> --}}
+                      <button class="btn js-prd-addtocart" data-product='{"name": "Oversized Cotton Blouse", "path":"images/skins/fashion/products/product-03-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
                     </form>
                   </div>
                 </div>
+                
+               
                 <div class="prd-hovers">
-                    @if($item->count())
+                  @if($item->count())
                   <div class="prd-circle-labels">
                     <div><a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a></div>
-                    {{-- <div class="prd-hide-mobile"><a href="#" class="circle-label-qview js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div> --}}
+                    <div class="prd-hide-mobile"><a href="#" class="circle-label-qview js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div>
                   </div>
                   <div class="prd-price">
                     {{-- <div class="price-old">$ 200</div> --}}
@@ -69,33 +72,43 @@
                     @endphp
                     <div class="price-new">&#8377;{{ $item->purchase_price}}</div>
                   </div>
+              
+                  <select hidden name="ship_to" class="ship_to" id="shipTo">
+                    @foreach($countries as $country_id => $country_name)
+                    <option hidden value="{{$country_id}}" {{$country_id == $shipping_country_id ? 'selected' : ''}}>{{$country_name}}</option>
+                    @endforeach
+                    </select>
+                            {{ Form::hidden('shipping_zone_id', Null, ['id' => 'shipping-zone-id']) }}
+                            {{ Form::hidden('shipping_rate_id', Null, ['id' => 'shipping-rate-id']) }}
+                    <input class="product-info-qty product-info-qty-input" data-name="product_quantity" data-min="{{$item->min_order_quantity}}" data-max="{{$item->stock_quantity}}" type="hidden" value="{{$item->min_order_quantity}}">
                   <div class="prd-action">
+                  
                     <div class="prd-action-left">
-
-                      <input class="product-info-qty product-info-qty-input" data-name="product_quantity" data-min="{{$item->min_order_quantity}}" data-max="{{$item->stock_quantity}}" type="hidden" value="{{$item->min_order_quantity}}">
-                      <select hidden name="ship_to" class="ship_to" id="shipTo">
-                        @foreach($countries as $country_id => $country_name)
-                        <option hidden value="{{$country_id}}" {{$country_id == $shipping_country_id ? 'selected' : ''}}>{{$country_name}}</option>
-                        @endforeach
-                        </select>
-                                {{ Form::hidden('shipping_zone_id', Null, ['id' => 'shipping-zone-id']) }}
-                                {{ Form::hidden('shipping_rate_id', Null, ['id' => 'shipping-rate-id']) }}
-
-
-                        @if($item->stock_quantity > 0)
-                        {{-- <form method="POST" action="{{ route('cart.addItem', $item->slug) }}">
-                          @csrf() --}}
-                          <input type="hidden" id="have-link" value="{{ route('cart.addItem', $item->slug) }}">
-                        <button  class="btn js-prd-addtocart sc-add-to-cart btn-block"  data-product='{"name":"{{( $item->title) }}", "path":"{{get_product_img_src($item, 'medium') }}", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-                        {{-- <button class="btn js-prd-addtocart" onclick="onaddtocartclick({{$item->slug}},1)">cart</button>
-                        <button class="btn js-prd-addtocart" onclick="onaddtocartclick({{$item->slug}},1)" data-product='{"name": "Oversized Cotton Blouse", "path":"images/skins/fashion/products/product-03-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button> --}}
-                        {{-- <a class="btn js-prd-addtocart sc-add-to-cart" data-product='{"name": "{{( $item->title) }}", "path":"{{get_product_img_src($item, 'medium') }}", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</a> --}}
-                      {{-- </form> --}}
+                      @if($item->stock_quantity > 0)
+                      <form method="POST" action="{{ route('cart.addItem', $item->slug) }}">
+                        {{-- <button class="btn js-prd-addtocart" onclick="onaddtocartclick({{$item->slug}},1)">cart</button> --}}
+                      {{-- <button  class="btn js-prd-addtocart sc-add-to-cart ">Add To Cart</button> --}}
+                   
+                      <button class="btn js-prd-addtocart sc-add-to-cart ">Add To Cart</button>
+                       </form> 
                       @endif
+                    {{-- @if($item->stock_quantity > 0)
+                    <a type="hidden" name="_token" value="{{ csrf_token() }}" class="btn btn-primary flat sc-add-to-cart" href="{{ route('cart.addItem', $item->slug) }}">
+                        <i class="fa fa-shopping-cart"></i> @lang('theme.button.add_to_cart')
+                    </a>
+                    @else
+                    <a type="hidden" name="_token" value="{{ csrf_token() }}" class="btn btn-primary flat sc-add-to-cart" href="{{ route('cart.addItem', $item->slug) }}">
+                        <i class="fa fa-shopping-cart"></i> Out of Stock
+                    </a>
+                    @endif --}}
+                  
+                      
                     </div>
-                  </div>
+                  </div>  
+                
                   @endif
                 </div>
+              
               </div>
             </div>
           </div>
@@ -515,66 +528,73 @@
       </div>
     </div>
   </div>
-  <script> 
-    $(document).ready(function () {
-      $(".sc-add-to-cart").click(function () {
-        var item = $(this).closest('.sc-product-item');
-               var qtt = item.find('input.product-info-qty-input').val();
-               var shipTo = item.find('select#shipTo').val();
-               var shippingZoneId = item.find('input#shipping-zone-id').val();
-               var shippingRateId = item.find('input#shipping-rate-id').val();
-               var product_link=item.find('input#have-link').val();
-               $.ajax({
-                   url: product_link,
-                   type: 'POST',
-                   data: {
-                       'shipTo' : shipTo,
-                       'shippingZoneId' : shippingZoneId,
-                       'shippingRateId' : shippingRateId,
-                       'quantity': qtt ? qtt : 1
-                   },
-                   complete: function (xhr, textStatus) {
-                    if(textStatus=="error"){
-                      document.getElementById("stickymess").innerHTML="Already exist";
+  {{-- <script>
+    function fifa(){
+      alert("hello00o");
+      $.ajax({
+                url: "{{route('cart.addItem','granite-non-stick-6-piece-casserole-set-with-lids-b0562c8d9060eab98fd485850e7e518e')}}",
+                type: 'POST',
+                data: {
+                    'shipTo' : 1,
+                    'shippingZoneId' :1,
+                    'shippingRateId' :1,
+                    'quantity':1,
+                },
+                complete: function (xhr, textStatus) {
+                  alert("helloo");
+                    // if(200 == xhr.status){
+                    //     @include('layouts.notification', ['message' => trans('theme.notify.item_added_to_cart'), 'type' => 'success', 'icon' => 'check-circle'])
+                    //     // Increase global cart item count by 1
+                    //     increaseCartItem(1);
+                    // }
+                    // else if(444 == xhr.status){
+                    //     @include('layouts.notification', ['message' => trans('theme.notify.item_added_already_in_cart'), 'type' => 'info', 'icon' => 'info-circle'])
+                    // }
+                    // else{
+                    //     @include('layouts.notification', ['message' => trans('theme.notify.failed'), 'type' => 'warning', 'icon' => 'times-circle'])
+                    // }
+                },
+            });
+    }
+    </script> --}}
 
-                    }
-                    else{
-                      document.getElementById("stickymess").innerHTML="Added to cart";
-                    }
-                  
-                   },
-               });
-          }); 
-        }); 
+ <script> 
+ $(document).ready(function () {
+     
+  $(".sc-add-to-cart").click(function () {
   
-    // function onaddtocartclick(id,qu)
-    // {
-    //     alert(" HELLO world");
-    //     // var y = document.getElementById("quantity"+id);
-    //     // if(y==null)
-    //     // qu=1;
-    //     // else
-    //     // qu==parseInt(y.value);
-        
-    //   $.ajax({
-    //       url: "{{route('cart.addItem', $item->slug)}}",
-    //       type: 'POST',
-    //       // dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-    //       data: {
-    //         slug: id,
-    //         quantity:qu
-        
-    //       },
-    //          success: function(response){
-    //           console.log(response);
-    //           alert(" HELLO");
-    //         //   var dataResult = JSON.parse(response);
-    //         //   if(dataResult.data=="login")
-    //         //   window.location = "{{route('login')}}";
-    //         //   else
-    //         //   document.getElementById("addedtocarttext").innerHTML=dataResult.data;
-              
-    //           }
-    //   });
-    // }
-     </script>
+      // $(".sc-add-to-cart").on("click", function(e) {
+         //  e.preventDefault();
+            var item = $(this).closest('.sc-product-item');
+            var qtt = item.find('input.product-info-qty-input').val();
+            var shipTo = item.find('select#shipTo').val();
+            var shippingZoneId = item.find('input#shipping-zone-id').val();
+            var shippingRateId = item.find('input#shipping-rate-id').val();
+            alert("hello ji");
+            $.ajax({
+                url: $(this).attr('href'),
+                type: 'POST',
+                data: {
+                    'shipTo' : shipTo,
+                    'shippingZoneId' : shippingZoneId,
+                    'shippingRateId' : shippingRateId,
+                    'quantity': qtt ? qtt : 1
+                },
+                complete: function (xhr, textStatus) {
+                  alert("hello");
+                    // if(200 == xhr.status){
+                    //     @include('layouts.notification', ['message' => trans('theme.notify.item_added_to_cart'), 'type' => 'success', 'icon' => 'check-circle'])
+                    //     // Increase global cart item count by 1
+                    //     increaseCartItem(1);
+                    // }
+                    // else if(444 == xhr.status){
+                    //     @include('layouts.notification', ['message' => trans('theme.notify.item_added_already_in_cart'), 'type' => 'info', 'icon' => 'info-circle'])
+                    // }
+                    // else{
+                    //     @include('layouts.notification', ['message' => trans('theme.notify.failed'), 'type' => 'warning', 'icon' => 'times-circle'])
+                    // }
+                },
+            });
+        });
+      });
+  </script>

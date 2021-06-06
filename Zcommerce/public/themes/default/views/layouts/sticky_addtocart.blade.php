@@ -56,7 +56,7 @@
             </a>
             <div class="col popup-addedtocart_text">
               <a href="product.html" class="popup-addedtocart_title"></a>
-              <span class="popup-addedtocart_message">Added to <a href="cart.html" class="underline">Cart</a></span>
+              <span class="popup-addedtocart_message" id="stickymess"> </span>
               <span class="popup-addedtocart_error_message"></span>
             </div>
           </div>

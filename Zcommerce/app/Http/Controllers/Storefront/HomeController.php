@@ -136,65 +136,65 @@ class HomeController extends Controller
      */
     public function product($slug)
     {
-        // $item = Inventory::where('slug', $slug)->withCount('feedbacks')->firstOrFail();
-        // $shop = $item->shop;
-        // $item->load(['product' => function($q){
-        //         $q->select('id', 'slug', 'description', 'manufacturer_id')
-        //         ->withCount(['inventories' => function($query){
-        //             $query->available();
-        //         }]);
-        //     }, 'attributeValues' => function($q){
-        //         $q->select('id', 'attribute_values.attribute_id', 'value', 'color', 'order')->with('attribute:id,name,attribute_type_id,order');
-        //     },
-        //     'feedbacks.customer:id,nice_name,name',
-        //     'images:path,imageable_id,imageable_type',
-        // ]);
+        $item = Inventory::where('slug', $slug)->withCount('feedbacks')->firstOrFail();
+        $shop = $item->shop;
+        $item->load(['product' => function($q){
+                $q->select('id', 'slug', 'description', 'manufacturer_id')
+                ->withCount(['inventories' => function($query){
+                    $query->available();
+                }]);
+            }, 'attributeValues' => function($q){
+                $q->select('id', 'attribute_values.attribute_id', 'value', 'color', 'order')->with('attribute:id,name,attribute_type_id,order');
+            },
+            'feedbacks.customer:id,nice_name,name',
+            'images:path,imageable_id,imageable_type',
+        ]);
 
-        //     $result=DB::table('product_visit_count')->where(['inventories_id'=>$item->id,'shop_id'=>$item->shop_id])->whereDate('created_at', \Carbon\Carbon::today())->get();
+            $result=DB::table('product_visit_count')->where(['inventories_id'=>$item->id,'shop_id'=>$item->shop_id])->whereDate('created_at', \Carbon\Carbon::today())->get();
           
-        //     if (count($result) > 0) {
-        //         DB::table('product_visit_count')->where('visit_id', $result[0]->visit_id)->increment('hits', 1,['updated_at' => Carbon::now()]);
-        //     }else{
+            if (count($result) > 0) {
+                DB::table('product_visit_count')->where('visit_id', $result[0]->visit_id)->increment('hits', 1,['updated_at' => Carbon::now()]);
+            }else{
 
-        //        $data=array(
-        //         'inventories_id'=>$item->id,
-        //         'shop_id'       =>$item->shop_id,
-        //         'hits'          =>1,
-        //         "created_at" => Carbon::now()->toDateTimeString(),
-        //         "updated_at" => Carbon::now()->toDateTimeString()
-        //          );
-        //       DB::table('product_visit_count')->insert($data); 
-        //     }
+               $data=array(
+                'inventories_id'=>$item->id,
+                'shop_id'       =>$item->shop_id,
+                'hits'          =>1,
+                "created_at" => Carbon::now()->toDateTimeString(),
+                "updated_at" => Carbon::now()->toDateTimeString()
+                 );
+              DB::table('product_visit_count')->insert($data); 
+            }
             
 
-        // $this->update_recently_viewed_items($item); //update_recently_viewed_items
+        $this->update_recently_viewed_items($item); //update_recently_viewed_items
 
-        // $variants = ListHelper::variants_of_product($item, $item->shop_id);
+        $variants = ListHelper::variants_of_product($item, $item->shop_id);
 
-        // $attr_pivots = \DB::table('attribute_inventory')->select('attribute_id','inventory_id','attribute_value_id')
-        // ->whereIn('inventory_id', $variants->pluck('id'))->get();
+        $attr_pivots = \DB::table('attribute_inventory')->select('attribute_id','inventory_id','attribute_value_id')
+        ->whereIn('inventory_id', $variants->pluck('id'))->get();
 
-        // $item_attrs = $attr_pivots->where('inventory_id', $item->id)->pluck('attribute_value_id')->toArray();
+        $item_attrs = $attr_pivots->where('inventory_id', $item->id)->pluck('attribute_value_id')->toArray();
 
-        // $attributes = \App\Attribute::select('id','name','attribute_type_id','order')
-        // ->whereIn('id', $attr_pivots->pluck('attribute_id'))
-        // ->with(['attributeValues' => function($query) use ($attr_pivots) {
-        //     $query->whereIn('id', $attr_pivots->pluck('attribute_value_id'))->orderBy('order');
-        // }])->orderBy('order')->get();
+        $attributes = \App\Attribute::select('id','name','attribute_type_id','order')
+        ->whereIn('id', $attr_pivots->pluck('attribute_id'))
+        ->with(['attributeValues' => function($query) use ($attr_pivots) {
+            $query->whereIn('id', $attr_pivots->pluck('attribute_value_id'))->orderBy('order');
+        }])->orderBy('order')->get();
 
-        // $variants = $variants->toJson(JSON_HEX_QUOT);
+        $variants = $variants->toJson(JSON_HEX_QUOT);
 
-        // // TEST
-        // $related = ListHelper::related_products($item);
-        // $linked_items = ListHelper::linked_items($item);
+        // TEST
+        $related = ListHelper::related_products($item);
+        $linked_items = ListHelper::linked_items($item);
 
-        // if( ! $linked_items->count() )
-        //     $linked_items = $related->random($related->count() >= 3 ? 3 : $related->count());
+        if( ! $linked_items->count() )
+            $linked_items = $related->random($related->count() >= 3 ? 3 : $related->count());
 
-        // $geoip = geoip(request()->ip()); // Set the location of the user
-        // $countries = ListHelper::countries(); // Country list for shop_to dropdown
+        $geoip = geoip(request()->ip()); // Set the location of the user
+        $countries = ListHelper::countries(); // Country list for shop_to dropdown
 
-        // return view('product', compact('item', 'variants', 'attributes', 'item_attrs', 'related', 'linked_items', 'geoip', 'countries','shop'));
+        return view('product', compact('item', 'variants', 'attributes', 'item_attrs', 'related', 'linked_items', 'geoip', 'countries','shop'));
     }
 
     public function simple_product($slug)
@@ -320,12 +320,12 @@ class HomeController extends Controller
         $cat_subGroupId=json_decode($cat_subGroupId);
 
     
-        // Session::put('shop',$shop);
+         Session::put('shop',$shop);
     
-        // $shop->increment('store_visit_count');
-        // // Check shop maintenance_mode
-        // if(getShopConfig($shop->id, 'maintenance_mode'))
-        //     return response()->view('errors.503', [], 503);
+        $shop->increment('store_visit_count');
+        // Check shop maintenance_mode
+        if(getShopConfig($shop->id, 'maintenance_mode'))
+            return response()->view('errors.503', [], 503);
 
         $products = Inventory::where('shop_id', $shop->id)->filter(request()->all())
         ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'images:path,imageable_id,imageable_type'])
@@ -333,34 +333,35 @@ class HomeController extends Controller
             $q->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
         }])
         ->paginate(8);
-        
+         $countries = ListHelper::countries(); // Country list for shop_to dropdown
 
-        // $trending = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
-        // ->withCount(['orders' => function($q){
-        //     $q->withArchived();
-        // }])->orderBy('orders_count', 'desc')
-        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
-        // ->limit(10)->get();
+        $geoip = geoip(request()->ip()); // Set the location of the user
+        $trending = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
+        ->withCount(['orders' => function($q){
+            $q->withArchived();
+        }])->orderBy('orders_count', 'desc')
+        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
+        ->limit(10)->get();
 
          $banners = Banner::with('featuredImage:path,imageable_id,imageable_type', 'images:path,imageable_id,imageable_type')
          ->orderBy('order', 'asc')->get()->groupBy('group_id')->toArray();
      
 
-        // $recent = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','set_size','set_desc','stock_quantity')
-        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
-        // ->latest()->limit(10)->get();
+        $recent = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','set_size','set_desc','stock_quantity')
+        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
+        ->latest()->limit(10)->get();
 
-        // $additional_items = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','set_size','set_desc','stock_quantity')
-        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
-        // ->inRandomOrder()->limit(10)->get();
+        $additional_items = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','set_size','set_desc','stock_quantity')
+        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
+        ->inRandomOrder()->limit(10)->get();
 
-        // $weekly_popular = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
-        //     ->withCount(['orders' => function($q){
-        //     $q->withArchived();
-        // }])->orderBy('orders_count', 'desc')
-        // ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
-        // ->limit(5)->get();
-        return view('shop',compact('shop','banners','cat_subGroupId','products'));
+        $weekly_popular = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
+            ->withCount(['orders' => function($q){
+            $q->withArchived();
+        }])->orderBy('orders_count', 'desc')
+        ->with(['feedbacks:rating,feedbackable_id,feedbackable_type', 'image:path,imageable_id,imageable_type'])
+        ->limit(5)->get();
+        return view('shop',compact('shop','banners','cat_subGroupId','products','trending','recent','additional_items','weekly_popular','geoip','countries'));
        
     }
 

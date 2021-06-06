@@ -21,5 +21,5 @@
       </div>
     </div>
   </div>
-  @include('scripts.cartjs')
+ 
 @endsection

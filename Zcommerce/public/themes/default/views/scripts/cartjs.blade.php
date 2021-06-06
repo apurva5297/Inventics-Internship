@@ -1,6 +1,4 @@
 <script>
-
-
     function onaddtocartclick(id,qu)
     {
         alert(" HELLO world");
@@ -11,7 +9,7 @@
         qu==parseInt(y.value);
         
       $.ajax({
-          url: "{{route('cart.addItem')}}",
+          url: "{{route('cart.addItem', $item->slug)}}",
           type: 'POST',
           // dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
           data: {
@@ -32,3 +30,4 @@
       });
     }
     </script>
+    

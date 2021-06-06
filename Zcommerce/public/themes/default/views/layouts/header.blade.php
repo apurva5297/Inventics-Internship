@@ -7,11 +7,15 @@
             <div class="menu-toggle"> <a href="#" class="mobilemenu-toggle"><i class="icon-menu"></i></a> </div>
             <!-- /Menu Toggle -->
           </div>
-          <div class="col-auto hdr-logo">
+          <div class="col-auto hdr-logo" style=" padding-top: 15px;
+          -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+          height: 80px;">
             @if(isset($shop))
             <a href="{{ url('/shop',$shop->slug) }}">
                 <img src="{{ get_storage_file_url(optional($shop->logo)->path, 'full') }}" class="brand-logo" alt="Logo"
-                    title="Logo">
+                    title="Logo"style="height: 60px;
+                    width: auto;">
             </a>
             @elseif(Session::get('shop') != array(['','null']))
             <a href="{{ url('/shop',Session::get('shop')->slug) }}">
@@ -164,7 +168,7 @@
               @if(isset($shop))
               <a href="{{ url('/shop',$shop->slug) }}">
                   <img src="{{ get_storage_file_url(optional($shop->logo)->path, 'full') }}" class="brand-logo" alt="Logo"
-                      title="Logo" style="height: 80px;
+                      title="Logo" style="height: 60px;
                       width: auto;">
               </a>
               @elseif(Session::get('shop') != array(['','null']))
