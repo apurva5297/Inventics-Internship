@@ -42,12 +42,9 @@
   <!-- payment note -->  
     @include('layouts.payment_note')
 
-    {{-- @include('notifications') --}}
+  
     {{-- @include('scripts.appjs') --}}
-    {{-- @include('scripts.cartjs') --}}
-    {{-- @include('scripts.cart')
-    @include('scripts.checkout') --}}
-      {{-- @include('scripts.product_page') --}}
+  
   
   <script src="{{ theme_asset_url('js/vendor-special/lazysizes.min.js')}}"></script>
   <script src="{{ theme_asset_url('js/vendor-special/ls.bgset.min.js')}}"></script>

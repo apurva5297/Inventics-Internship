@@ -5,15 +5,9 @@
         <div class="h-sub maxW-825">Hurry up! Limited</div>
       </div>
       <div class="prd-grid-wrap position-relative">
-        <div class="prd-grid data-to-show-4 data-to-show-lg-4 data-to-show-md-3 data-to-show-sm-2 data-to-show-xs-2 js-category-grid" data-grid-tab-content>
-          @foreach($products as $item)
-          @php
-          $shipping_country_id = get_id_of_model('countries', 'iso_3166_2', $geoip->iso_code);
-          $shipping_state_id = $geoip->state;
+       <div class="prd-grid data-to-show-4 data-to-show-lg-4 data-to-show-md-3 data-to-show-sm-2 data-to-show-xs-2 js-category-grid" data-grid-tab-content>
         
-          $shipping_zone = get_shipping_zone_of($item->shop_id, $shipping_country_id, $shipping_state_id);
-          $shipping_options = isset($shipping_zone->id) ? getShippingRates($shipping_zone->id) : 'NaN';
-        @endphp
+         @foreach($products as $item)
           <div class="prd prd--style2 prd-labels--max prd-labels-shadow sc-product-item">
             <div class="prd-inside">
               <div class="prd-img-area">
@@ -72,25 +66,33 @@
                   <div class="prd-action">
                     <div class="prd-action-left">
 
-                      <input class="product-info-qty product-info-qty-input" data-name="product_quantity" data-min="{{$item->min_order_quantity}}" data-max="{{$item->stock_quantity}}" type="hidden" value="{{$item->min_order_quantity}}">
-                      <select hidden name="ship_to" class="ship_to" id="shipTo">
+                      
+                        {{-- Including data for Add-to-Cart --}}
+                         @php
+                         $shipping_country_id = get_id_of_model('countries', 'iso_3166_2', $geoip->iso_code);
+                         $shipping_state_id = $geoip->state;
+        
+                         $shipping_zone = get_shipping_zone_of($item->shop_id, $shipping_country_id, $shipping_state_id);
+                         $shipping_options = isset($shipping_zone->id) ? getShippingRates($shipping_zone->id) : 'NaN';
+                         @endphp
+      
+
+                        <input class="product-info-qty product-info-qty-input" data-name="product_quantity" data-min="{{$item->min_order_quantity}}" data-max="{{$item->stock_quantity}}" type="hidden" value="{{$item->min_order_quantity}}">
+                        <select hidden name="ship_to" class="ship_to" id="shipTo">
                         @foreach($countries as $country_id => $country_name)
                         <option hidden value="{{$country_id}}" {{$country_id == $shipping_country_id ? 'selected' : ''}}>{{$country_name}}</option>
                         @endforeach
                         </select>
-                                {{ Form::hidden('shipping_zone_id', Null, ['id' => 'shipping-zone-id']) }}
-                                {{ Form::hidden('shipping_rate_id', Null, ['id' => 'shipping-rate-id']) }}
-
+                       {{ Form::hidden('shipping_zone_id', Null, ['id' => 'shipping-zone-id']) }}
+                       {{ Form::hidden('shipping_rate_id', Null, ['id' => 'shipping-rate-id']) }}
+                       {{-- End --}}
 
                         @if($item->stock_quantity > 0)
-                        {{-- <form method="POST" action="{{ route('cart.addItem', $item->slug) }}">
-                          @csrf() --}}
-                          <input type="hidden" id="have-link" value="{{ route('cart.addItem', $item->slug) }}">
+                  
+                        <input type="hidden" id="have-link" value="{{ route('cart.addItem', $item->slug) }}">
                         <button  class="btn js-prd-addtocart sc-add-to-cart btn-block"  data-product='{"name":"{{( $item->title) }}", "path":"{{get_product_img_src($item, 'medium') }}", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-                        {{-- <button class="btn js-prd-addtocart" onclick="onaddtocartclick({{$item->slug}},1)">cart</button>
-                        <button class="btn js-prd-addtocart" onclick="onaddtocartclick({{$item->slug}},1)" data-product='{"name": "Oversized Cotton Blouse", "path":"images/skins/fashion/products/product-03-1.jpg", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button> --}}
-                        {{-- <a class="btn js-prd-addtocart sc-add-to-cart" data-product='{"name": "{{( $item->title) }}", "path":"{{get_product_img_src($item, 'medium') }}", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</a> --}}
-                      {{-- </form> --}}
+                
+                     
                       @endif
                     </div>
                   </div>
@@ -515,6 +517,9 @@
       </div>
     </div>
   </div>
+
+
+  {{-- ajax for Add-to-cart --}}
   <script> 
     $(document).ready(function () {
       $(".sc-add-to-cart").click(function () {
@@ -547,34 +552,4 @@
           }); 
         }); 
   
-    // function onaddtocartclick(id,qu)
-    // {
-    //     alert(" HELLO world");
-    //     // var y = document.getElementById("quantity"+id);
-    //     // if(y==null)
-    //     // qu=1;
-    //     // else
-    //     // qu==parseInt(y.value);
-        
-    //   $.ajax({
-    //       url: "{{route('cart.addItem', $item->slug)}}",
-    //       type: 'POST',
-    //       // dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-    //       data: {
-    //         slug: id,
-    //         quantity:qu
-        
-    //       },
-    //          success: function(response){
-    //           console.log(response);
-    //           alert(" HELLO");
-    //         //   var dataResult = JSON.parse(response);
-    //         //   if(dataResult.data=="login")
-    //         //   window.location = "{{route('login')}}";
-    //         //   else
-    //         //   document.getElementById("addedtocarttext").innerHTML=dataResult.data;
-              
-    //           }
-    //   });
-    // }
      </script>

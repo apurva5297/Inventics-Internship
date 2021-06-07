@@ -333,9 +333,10 @@ class HomeController extends Controller
             $q->where('order_items.created_at', '>=', Carbon::now()->subHours(config('system.popular.hot_item.period', 24)));
         }])
         ->paginate(8);
+        
          $countries = ListHelper::countries(); // Country list for shop_to dropdown
+         $geoip = geoip(request()->ip()); // Set the location of the user
 
-        $geoip = geoip(request()->ip()); // Set the location of the user
         $trending = Inventory::where('shop_id', $shop->id)->select('id','slug','title','condition','sale_price','offer_price','offer_start','offer_end','stuff_pick','set_size','set_desc','stock_quantity')
         ->withCount(['orders' => function($q){
             $q->withArchived();
