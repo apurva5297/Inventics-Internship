@@ -1,5 +1,6 @@
+@foreach($carts as $cart)
 <div class="col-lg-11 col-xl-13">
-<div class="cart-table" id="table{{$cart->id}}">
+    <div class="cart-table {{$expressId == $cart->id ? 'selected' : ''}}" id="cartId{{$cart->id}}" data-cart="{{$cart->id}}">
 
       <div class="cart-table-prd cart-table-prd--head py-1 d-none d-md-flex">
         <div class="cart-table-prd-image text-center">
@@ -15,7 +16,7 @@
  
  @if($cart->is_sample == 1)
  @foreach($cart->inventories as $item)
-      <div class="cart-table-prd " >
+      <div class="cart-table-prd " id="cartId{{$cart->id}}">
         <div class="cart-table-prd-image">
           <a href="product.html" class="prd-img"><img class="lazyload fade-up" src="{{ get_storage_file_url(optional($item->image)->path, 'mini') }}" alt="{{ $item->slug }}" title="{{ $item->slug }}"  data-src="images/skins/fashion/products/product-01-1.jpg" alt=""></a>
         </div>
@@ -47,7 +48,7 @@
  @endforeach   
  @else
  @foreach($cart->inventories as $item)
-  <div class="cart-table-prd ">
+ <div class="cart-table-prd " id="cartId{{$cart->id}}">
    <div class="cart-table-prd-image">
      <a href="product.html" class="prd-img"><img class="lazyload fade-up" src="{{ get_storage_file_url(optional($item->image)->path, 'mini') }}" alt="{{ $item->slug }}" title="{{ $item->slug }}"  data-src="images/skins/fashion/products/product-01-1.jpg" alt=""></a>
    </div>
@@ -75,7 +76,7 @@
    <div class="cart-table-prd-action">
      <a href="#" class="cart-table-prd-remove" data-tooltip="Remove Product"><i class="icon-recycle"></i></a>
    </div>
-  </div>
+ </div>
  @endforeach
  @endif
 
@@ -132,5 +133,6 @@
           <a href="#" class="cart-table-prd-remove" data-tooltip="Remove Product"><i class="icon-recycle"></i></a>
         </div>
       </div> --}}
-</div>
-</div>
+    </div>
+    </div>
+    @endforeach

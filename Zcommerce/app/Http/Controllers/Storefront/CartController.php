@@ -24,7 +24,11 @@ class CartController extends Controller
      */
     public function index(Request $request, $expressId = Null)
     {
-        
+        $shop = $request->session()->get('shop', 'default');
+        $shop_category= ShopCategory::where('shop_id',$shop->id)->first();
+        $cat_subGroupId=$shop_category->category_sub_group_id;
+        $cat_subGroupId=json_decode($cat_subGroupId);
+    
         $carts = Cart::whereNull('customer_id')->where('ip_address', $request->ip());
 
         if(Auth::guard('customer')->check())
@@ -43,10 +47,7 @@ class CartController extends Controller
 
         $platformDefaultPackaging = getPlatformDefaultPackaging(); // Get platform's default packaging
         $cart['simple_pro']=1;
-        $shop = $request->session()->get('shop', 'default');
-        $shop_category= ShopCategory::where('shop_id',$shop->id)->first();
-        $cat_subGroupId=$shop_category->category_sub_group_id;
-        $cat_subGroupId=json_decode($cat_subGroupId);
+      
         return view('cart', compact('carts','countries','platformDefaultPackaging','expressId','shop','cat_subGroupId'));
     }
 

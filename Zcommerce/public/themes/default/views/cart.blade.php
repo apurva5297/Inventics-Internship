@@ -14,11 +14,20 @@
         <div class="page-title text-center">
           <h1>Shopping Cart</h1>
         </div>
+        @if($carts->count() > 0) 
+        @foreach($carts as $cart)
+        @if($cart->shop->id == $shop->id)
         <div class="row">
+         
           @include('Cart.CartPage.cartlist')
           @include('Cart.CartPage.cartoption')
         </div>
+        @endif
+     @endforeach
+        @endif
+        @include('Common.you_may_like')
       </div>
+      
     </div>
   </div>
  
