@@ -2,62 +2,62 @@
 @section('content')
 <div class="container">
 <h3 class="title">Blog Edit</h3>
-<form action="{{route('blog.update',$blog->id)}}" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
 @csrf()
 @method('put')
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
-    <input type="text" class="form-control" name="name" value="{{$blog->name}}"  placeholder="name">
+    <input type="text" class="form-control" name="name" value=""  placeholder="name">
     @error('name')
-    <span class="text-danger">{{$message}}</span>
+    <span class="text-danger"></span>
     @enderror
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Category</label>
     <select name="category" class="js-example-basic-single form-control" >
     <option value="">--select category--</option>
-    @foreach($categories as $category)
+   
     <option
-    @if($category->id==$blog->category_id)
+   
     selected
-    @endif
-     value="{{$category->id}}">{{$category->name}}</option>
-    @endforeach
+   
+     value=""></option>
+
     </select>
     @error('category')
-    <span class="text-danger">{{$message}}</span>
+    <span class="text-danger"></span>
     @enderror
   </div>
   
   <div class="form-group">
   <label for="exampleInputEmail1">Image</label> <br>
-<img style="height:15%;width:15%;" src="{{asset('image/'.$blog->image)}}" alt="">
+<img style="height:15%;width:15%;" src="" alt="">
 <input type="file" name="image">
 </div>
-<a href="{{route('blog.delete_image_only',$blog->id)}}" class="btn btn-danger"style="margin-bottom:2px";>Delete Image</button> </a>
+<a href="" class="btn btn-danger"style="margin-bottom:2px";>Delete Image</button> </a>
   <div class="form-group">
     <label for="exampleInputEmail1">Tags</label>
     <select name="tags[]" class="js-example-basic-multiple form-control" multiple >
     <option value="">--select tag--</option>
-    @foreach($tags as $tag)
+  
     <option 
-    @foreach($blog->tags as $t)
-      @if($t->id==$tag->id)
-      selected  
-      @endif
-    @endforeach
-     value="{{$tag->id}}">{{$tag->name}}</option>
-    @endforeach
+  
+ 
+ 
+
+
+     value=""></option>
+
     </select>
     @error('tags')
-    <span class="text-danger">{{$message}}</span>
+    <span class="text-danger"></span>
     @enderror
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
-    <textarea class="form-control" name="description" placeholder="description">{{$blog->description}}</textarea>
+    <textarea class="form-control" name="description" placeholder="description"></textarea>
     @error('description')
-    <span class="text-danger">{{$message}}</span>
+    <span class="text-danger"></span>
     @enderror
   </div>
  
