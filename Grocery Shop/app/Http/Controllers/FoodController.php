@@ -11,7 +11,7 @@ class FoodController extends Controller
 //    public $store_type='Fashion';
     public function index()
     {
-        $img_url="http://zcommerce.online/image/";
+        $img_url="http://dev.gudgrocery.com/image/";
 
         $current_currency="Rs.";
         $announcement=$this->announcements();

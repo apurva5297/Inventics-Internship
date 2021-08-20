@@ -15,8 +15,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public $server_image_path = "http://zcommerce.online/image/";
-    public $my_category = 'Fruits & Vegetables';
+    public $server_image_path = "http://dev.gudgrocery.com/image/";
+    public $my_category = 'Gud Grocery';
     public $store_type = 'Food';
     public $currency = "Rs.";
     public $current_currency = "Rs.";
@@ -37,6 +37,7 @@ class Controller extends BaseController
         $sub_categories = $this->getsubgroupcategories();
         $announcement=$this->announcements();
         $cat_product = $this->getcategoriesproduct();
+      //  dd($cat_product);
         View::share(['img_url' => $img_url,  'categories' => $categories, 'sub_categories' => $sub_categories, 'cat_product' => $cat_product,'announcement'=> $announcement,'wishlist'=>$wishlist ,'current_currency'=>$current_currency]);
     }
 
@@ -106,23 +107,24 @@ class Controller extends BaseController
     public function getcategoriesproduct($order = "random")//random, latest
     {
         if($order=="random")
-        {
+        { 
             $inventory= DB::table('category_groups')
-                ->join('category_sub_groups', 'category_groups.id', '=', 'category_sub_groups.category_group_id')
-                ->join('categories', 'category_sub_groups.id', '=', 'categories.category_sub_group_id')
-                ->join('category_product', 'categories.id', '=', 'category_product.category_id')
-                ->join('products', 'category_product.product_id', '=', 'products.id')
-                ->join('inventories', 'products.id', '=', 'inventories.product_id')
-                ->join('shops','inventories.shop_id','=','shops.id')
-                ->join('shipping_zones', 'inventories.shop_id', '=', 'shipping_zones.shop_id')
-                ->join('shipping_rates', 'shipping_zones.id', '=', 'shipping_rates.shipping_zone_id')
-                ->join('images', 'inventories.id', '=', 'images.imageable_id')
-                ->where('category_groups.name',$this->my_category)
-                ->where('images.imageable_type','App\Inventory')
-                ->where('images.featured',1)
-                ->where('inventories.stock_quantity','>',0)
-                ->select('inventories.*','inventories.id as inventory_id','products.id as product_id','inventories.title as name','images.path as img_path','inventories.sale_price as min_price','inventories.sale_price as max_price','categories.slug as product_cat','category_sub_groups.slug as product_sub_cat','category_sub_groups.name as cat_sub_name','shops.legal_name as shop_name')
-                ->inRandomOrder()->get();
+            ->join('category_sub_groups', 'category_groups.id', '=', 'category_sub_groups.category_group_id')
+            ->join('categories', 'category_sub_groups.id', '=', 'categories.category_sub_group_id')
+            ->join('category_product', 'categories.id', '=', 'category_product.category_id')
+            ->join('products', 'category_product.product_id', '=', 'products.id')
+           ->join('inventories', 'products.id', '=', 'inventories.product_id')
+           //->join('shops','inventories.shop_id','=','shops.id')
+            //->join('shipping_zones', 'inventories.shop_id', '=', 'shipping_zones.shop_id')
+           // ->join('shipping_rates', 'shipping_zones.id', '=', 'shipping_rates.shipping_zone_id')
+           ->join('images', 'inventories.id', '=', 'images.imageable_id')
+            ->where('category_groups.name',$this->my_category)
+           
+            ->where('images.imageable_type','App\Inventory')
+           // ->where('images.featured',1)
+            ->where('inventories.stock_quantity','>',0)
+            ->select('inventories.*','inventories.id as inventory_id','products.id as product_id','inventories.title as name','images.path as img_path','inventories.sale_price as min_price','inventories.sale_price as max_price','categories.slug as product_cat','category_sub_groups.slug as product_sub_cat','category_sub_groups.name as cat_sub_name')
+            ->inRandomOrder()->get();
         }
         elseif($order=="latest")
         {

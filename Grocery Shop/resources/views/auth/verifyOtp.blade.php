@@ -12,27 +12,35 @@
                     <div class="error"></div>
                     <div class="success"></div>
                     <form id="frm-mobile-verification"  method="POST" action="{{ route('verifyotp') }}">
-
+                        <br>
+                      
                         {{ csrf_field() }}
                         <div class="form-group row mb-0">
                             <!-- <div class="col-md-6 offset-md-4">
                                     <label>OTP is sent to Your Mobile Number</label>
                                 </div>
                             </div> -->
-
+<br>
+<br>
+<br>
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <input type="hidden"  name="Phoneno" class="form-input" value="{{$phone_no}}" >
-                                    <input type="number"  id="mobileOtp" name="OTP" class="form-input" placeholder="Enter the OTP">
+                         
+                                    <input style="text-align: left;" type="number"  class="form-control" id="mobileOtp" name="OTP" class="form-input" placeholder="Enter the OTP">
+                                
                                 </div>
                             </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <input id="verify" type="submit" class="btn btn-primary" value="Verify;" >
+                                    <input id="verify" type="submit" class="btn btn-primary" value="Verify" >
                                 </div>
                             </div>
                     </form>
+                    <br>
+<br>
+<br>
                     <!-- <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary" onClick="sendOTP()" value="send OTP;">
