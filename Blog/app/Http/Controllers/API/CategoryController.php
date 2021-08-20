@@ -85,13 +85,13 @@ class CategoryController extends Controller
 				{
 					if($request->name==null || $request->description==null)
 					return $this->response('Name or Description Missing',null,'1002');
-					$category=Category::where('slug',$request->slug)->first();
-					if(!$category)
-					return $this->response('category not found',null,'1002');
-					$str=strtolower($request->name);
-					$slug = preg_replace('/\s+/', '-', $str);
-					$random = Str::random(5);
-					$category->slug=$slug.$random;
+					 $category=Category::where('id',$request->id)->first();
+					 if(!$category)
+					 return $this->response('category not found',null,'1002');
+					// $str=strtolower($request->name);
+					// $slug = preg_replace('/\s+/', '-', $str);
+					// // $random = Str::random(5);
+					// $category->slug=$slug.$random;
 					$category->name=$request->name;
 					$category->description=$request->description;
 					$category->save();
@@ -100,7 +100,7 @@ class CategoryController extends Controller
 
 				public function delete(Request $request)
 				{
-					$category=Category::where('slug',$request->slug)->first();
+					$category=Category::where('id',$request->id)->first();
 					if(!$category)
 					return $this->response('category not found',$category,'1002');
 					$category->delete();
