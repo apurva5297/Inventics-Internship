@@ -27,6 +27,7 @@ class Controller extends BaseController
     {
         if ($this->isAuthenticated("check"))
             $wishlist = $this->showAllWishlist();
+            
         else
             $wishlist = array();
         $img_url = $this->server_image_path;
@@ -35,6 +36,7 @@ class Controller extends BaseController
 //        $minicartItems=$this->minicart();
         $categories = $this->getsubgroup();
         $sub_categories = $this->getsubgroupcategories();
+      //  dd($sub_categories);
         $announcement=$this->announcements();
         $cat_product = $this->getcategoriesproduct();
       //  dd($cat_product);
@@ -343,7 +345,7 @@ public function search_custom_inventory($type,$name,$operator="=")
                 ->join('images', 'inventories.id', '=', 'images.imageable_id')
                 ->where('customer_id', $this->isAuthenticated("id"))
                 ->where('images.imageable_type', 'App\Inventory')
-                ->where('images.featured', 1)
+               // ->where('images.featured', 1)
                 ->select('cart_items.*', 'carts.*', 'cart_items.quantity as item_quantity', 'inventories.title as name', 'inventories.brand as brand', 'inventories.stock_quantity as stock_quantity', 'images.path as img_path')
                 ->orderBy('carts.created_at', 'DESC')
                 ->get();
@@ -354,7 +356,7 @@ public function search_custom_inventory($type,$name,$operator="=")
                 ->join('images', 'inventories.id', '=', 'images.imageable_id')
                 ->where('customer_id', $this->isAuthenticated("id"))
                 ->where('images.imageable_type', 'App\Inventory')
-                ->where('images.featured', 1)
+               // ->where('images.featured', 1)
                 ->where('carts.id', $cart->id)
                 ->select('cart_items.*', 'carts.*', 'cart_items.quantity as item_quantity', 'inventories.title as name', 'inventories.brand as brand', 'inventories.stock_quantity as stock_quantity', 'images.path as img_path')
                 ->orderBy('carts.created_at', 'DESC')
@@ -533,10 +535,10 @@ public function search_custom_inventory($type,$name,$operator="=")
             $categories= DB::table('category_groups')
                 ->join('category_sub_groups', 'category_groups.id', '=', 'category_sub_groups.category_group_id')
                 ->join('categories', 'category_sub_groups.id', '=', 'categories.category_sub_group_id')
-                ->join('images', 'categories.id', '=', 'images.imageable_id')
+               // ->join('images', 'categories.id', '=', 'images.imageable_id')
                 ->where('category_groups.name',$this->my_category)
-                ->where('images.featured',1)
-                ->select('categories.*','categories.id as main_id','category_sub_groups.name as cat_sub_name','images.path as img_path')->get();
+                //->where('images.featured',1)
+                ->select('categories.*','categories.id as main_id','category_sub_groups.name as cat_sub_name')->get();
         }
         else
         {

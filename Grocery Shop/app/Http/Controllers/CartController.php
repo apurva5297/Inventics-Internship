@@ -29,6 +29,7 @@ class CartController extends Controller
         {
             $cart_ids=Cart::where('customer_id',$this->isAuthenticated("id"))->get();
             $cart_data=$this->GetAllTheCartDataForCartList();
+           // dd($cart_data);
             $inventory_images=$this->getInventoryImages();
             // dd($cart_data);
             if($cart_data==null)
